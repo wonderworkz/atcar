@@ -52,7 +52,7 @@ const FloatingButton = ({ onConsultClick }) => {
   return (
     <>
       {/* PC 버전 */}
-      <div className={`hidden md:block fixed bottom-[28px] xl:bottom-[20px] left-1/2 -translate-x-1/2 w-full max-w-[520px] z-50 transition-all ${isOpen ? 'open' : ''}`}>
+      <div className={`hidden md:block fixed bottom-[28px] xl:bottom-[20px] left-1/2 -translate-x-1/2 w-full z-50 transition-all ${isOpen ? 'max-w-[720px]' : 'max-w-[520px]'}`}>
         <div
           className="overflow-hidden rounded-[40px] border border-white/50 bg-[rgba(249,250,255,0.60)] px-[30px] py-[24px] backdrop-blur-[50px]"
           style={{
