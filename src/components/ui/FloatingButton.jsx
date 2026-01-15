@@ -184,7 +184,7 @@ const FloatingButton = ({ onConsultClick }) => {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <input
-                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-sm"
+                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-base"
                     placeholder="이름을 입력하세요"
                     type="text"
                     name="name"
@@ -192,7 +192,7 @@ const FloatingButton = ({ onConsultClick }) => {
                     onChange={handleInputChange}
                   />
                   <input
-                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-sm"
+                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-base"
                     placeholder="휴대폰번호 (-제외)"
                     type="tel"
                     name="phone"
@@ -200,7 +200,7 @@ const FloatingButton = ({ onConsultClick }) => {
                     onChange={handleInputChange}
                   />
                   <input
-                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-sm"
+                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-base"
                     placeholder="차종을 입력하세요"
                     type="text"
                     name="carModel"
