@@ -2,7 +2,53 @@ import React, { useState } from 'react';
 
 const FloatingButton = ({ onConsultClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    carModel: '',
+    agreeAll: false,
+    agreePrivacy: false,
+    agreeThirdParty: false,
+    agreeMarketing: false,
+  });
   const phoneNumber = '02-6356-0936';
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleAgreeAllChange = (e) => {
+    const checked = e.target.checked;
+    setFormData(prev => ({
+      ...prev,
+      agreeAll: checked,
+      agreePrivacy: checked,
+      agreeThirdParty: checked,
+      agreeMarketing: checked,
+    }));
+  };
+
+  const isFormValid = formData.name && formData.phone && formData.agreePrivacy && formData.agreeThirdParty;
+
+  const handleSubmit = () => {
+    if (isFormValid) {
+      onConsultClick(formData);
+      setIsOpen(false);
+      setFormData({
+        name: '',
+        phone: '',
+        carModel: '',
+        agreeAll: false,
+        agreePrivacy: false,
+        agreeThirdParty: false,
+        agreeMarketing: false,
+      });
+    }
+  };
 
   return (
     <>
@@ -76,70 +122,154 @@ const FloatingButton = ({ onConsultClick }) => {
             boxShadow: 'inset 0 4px 20px rgba(255,255,255,0.30), 0 0 24px rgba(0,0,0,0.20)'
           }}
         >
-          {/* 닫힌 상태 헤더 */}
+          {/* 닫힌 상태 */}
           {!isOpen && (
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600 font-medium">
-                나에게 꼭 맞는 차를 찾아드려요
-              </p>
-              <button
-                onClick={() => setIsOpen(true)}
-                className="flex items-center justify-center"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
-                  <path d="M1 9L9 1L17 9" stroke="#4E4E5B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          )}
-
-          {/* 열린 상태 헤더 */}
-          {isOpen && (
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-base font-bold tracking-tighter text-gray-900">
-                무료 상담 신청
-              </p>
-              <button onClick={() => setIsOpen(false)}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M1 1.33672L10.4281 10.7648M1 10.4281L10.4281 1" stroke="#4E4E5B" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </button>
-            </div>
-          )}
-
-          {/* 버튼 영역 */}
-          <div className="flex items-center justify-between gap-2.5">
-            {/* 카카오톡 버튼 - 닫힌 상태에서만 표시 */}
-            {!isOpen && (
-              <div className="flex min-w-0 flex-1 basis-0">
-                <a
-                  href={import.meta.env.VITE_KAKAO_TALK_URL || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-[52px] items-center justify-center rounded-[52px] bg-[#fee500] px-4 active:bg-[#e0ca00] w-full"
-                >
-                  <span className="inline-flex items-center gap-2">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 01-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z"/>
-                    </svg>
-                    <span className="text-[14px] font-semibold text-gray-900 tracking-tighter">
-                      카카오톡 견적문의
-                    </span>
-                  </span>
-                </a>
+            <>
+              <div className="flex items-center justify-center mb-2">
+                <p className="text-sm text-gray-600 font-medium text-center">
+                  지금 바로 최저가 견적받기
+                </p>
               </div>
-            )}
 
-            {/* 무료 견적 버튼 */}
-            <div className="flex min-w-0 flex-1 basis-0">
-              <button
-                onClick={onConsultClick}
-                className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3B82F6] text-[14px] font-bold tracking-tighter text-white active:bg-[#2563EB]"
-              >
-                무료 견적 받아보기
-              </button>
-            </div>
-          </div>
+              {/* 버튼 영역 */}
+              <div className="flex items-center justify-between gap-2.5">
+                {/* 카카오톡 버튼 */}
+                <div className="flex min-w-0 flex-1 basis-0">
+                  <a
+                    href={import.meta.env.VITE_KAKAO_TALK_URL || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-[52px] items-center justify-center rounded-[52px] bg-[#fee500] px-4 active:bg-[#e0ca00] w-full"
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 01-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z"/>
+                      </svg>
+                      <span className="text-[14px] font-semibold text-gray-900 tracking-tighter">
+                        카카오톡 견적문의
+                      </span>
+                    </span>
+                  </a>
+                </div>
+
+                {/* 무료 견적 버튼 */}
+                <div className="flex min-w-0 flex-1 basis-0">
+                  <button
+                    onClick={() => setIsOpen(true)}
+                    className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3B82F6] text-[14px] font-bold tracking-tighter text-white active:bg-[#2563EB]"
+                  >
+                    무료 견적 받아보기
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* 열린 상태 - 폼 */}
+          {isOpen && (
+            <>
+              {/* 헤더 */}
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-base font-bold tracking-tighter text-gray-900">
+                  무료 상담 신청
+                </p>
+                <button onClick={() => setIsOpen(false)}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M1 1.33672L10.4281 10.7648M1 10.4281L10.4281 1" stroke="#4E4E5B" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              {/* 입력 폼 */}
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <input
+                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-sm"
+                    placeholder="이름을 입력하세요"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-sm"
+                    placeholder="휴대폰번호 (-제외)"
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    className="h-10 rounded-[10px] border border-[#B0B9C2] px-6 bg-white text-sm"
+                    placeholder="차종을 입력하세요"
+                    type="text"
+                    name="carModel"
+                    value={formData.carModel}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                {/* 체크박스 */}
+                <div className="flex flex-col gap-[7px] mt-3.5">
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="checkbox"
+                      name="agreeAll"
+                      checked={formData.agreeAll}
+                      onChange={handleAgreeAllChange}
+                      className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
+                    />
+                    <p className="text-[13px] font-medium text-gray-600">전체 동의</p>
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="checkbox"
+                      name="agreePrivacy"
+                      checked={formData.agreePrivacy}
+                      onChange={handleInputChange}
+                      className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
+                    />
+                    <p className="text-[13px] font-medium text-gray-600">
+                      (필수) 개인정보 수집 및 활용동의 <span className="underline">[보기]</span>
+                    </p>
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="checkbox"
+                      name="agreeThirdParty"
+                      checked={formData.agreeThirdParty}
+                      onChange={handleInputChange}
+                      className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
+                    />
+                    <p className="text-[13px] font-medium text-gray-600">
+                      (필수) 개인정보 제3자 제공 동의 <span className="underline">[보기]</span>
+                    </p>
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="checkbox"
+                      name="agreeMarketing"
+                      checked={formData.agreeMarketing}
+                      onChange={handleInputChange}
+                      className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
+                    />
+                    <p className="text-[13px] font-medium text-gray-600">
+                      (선택) 마케팅 활용동의 <span className="underline">[보기]</span>
+                    </p>
+                  </label>
+                </div>
+
+                {/* 제출 버튼 */}
+                <button
+                  onClick={handleSubmit}
+                  disabled={!isFormValid}
+                  className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3B82F6] text-[14px] font-bold tracking-tighter text-white active:bg-[#2563EB] disabled:bg-[#ECECEC] disabled:text-[#9C9CAC]"
+                >
+                  무료 견적 받아보기
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
