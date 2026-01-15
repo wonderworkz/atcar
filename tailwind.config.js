@@ -8,15 +8,21 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3259E6',
-          active: 'rgba(50, 149, 230, 0.8)',
-          10: '#E8EEFF',
+          DEFAULT: '#3B82F6',
+          active: '#60A5FA',
+          10: '#DBEAFE',
         },
+        accent: '#60A5FA',
+        'background-light': '#F8FAFC',
+        charcoal: '#1E293B',
         gray: {
-          90: '#4e4e5b',
-          60: '#888888',
-          10: '#F5F5F5',
+          90: '#1E293B',
+          60: '#64748B',
+          10: '#F1F5F9',
         },
+      },
+      fontFamily: {
+        display: ['Plus Jakarta Sans', 'sans-serif'],
       },
       fontSize: {
         'hero-desktop': '54px',
@@ -27,14 +33,24 @@ export default {
         'body-mobile': '14px',
       },
       borderRadius: {
-        'button': '28px',
-        'button-lg': '40px',
-        'card-desktop': '40px',
-        'card-tablet': '28px',
-        'card-mobile': '20px',
+        DEFAULT: '1rem',
+        lg: '2rem',
+        xl: '2.5rem',
+        '3xl': '3rem',
+        button: '0.75rem',
+        'button-lg': '1rem',
+        'card-desktop': '2.5rem',
+        'card-tablet': '2rem',
+        'card-mobile': '1.5rem',
+        full: '9999px',
       },
       boxShadow: {
-        'primary': '0px -1px 20px rgba(40, 137, 253, 0.36)',
+        primary: '0 8px 32px -4px rgba(59, 130, 246, 0.2)',
+        glass: '0 4px 24px -1px rgba(0, 0, 0, 0.04)',
+        'glass-heavy': '0 8px 32px -4px rgba(0, 0, 0, 0.08)',
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },

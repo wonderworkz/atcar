@@ -46,14 +46,14 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="px-4 py-12 md:py-16">
+      <div className="max-w-4xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-90 mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
             자주 묻는 질문
           </h2>
-          <p className="text-lg md:text-xl text-gray-60">
+          <p className="text-lg md:text-xl text-charcoal/60">
             궁금하신 내용을 빠르게 확인해보세요
           </p>
         </div>
@@ -63,14 +63,14 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-card-tablet shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
+              className="glass-heavy rounded-3xl hover:shadow-glass-heavy transition-shadow duration-300 overflow-hidden"
             >
               {/* 질문 */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-10 transition-colors duration-200"
+                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-white/40 transition-colors duration-200"
               >
-                <span className="font-semibold text-gray-90 flex-1 text-base md:text-lg">
+                <span className="font-semibold text-charcoal flex-1 text-base md:text-lg">
                   {faq.question}
                 </span>
                 <svg
@@ -96,7 +96,7 @@ const FAQSection = () => {
                     : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-5 text-gray-60 leading-relaxed border-t border-gray-10 pt-4">
+                <div className="px-6 pb-5 text-charcoal/60 leading-relaxed border-t border-charcoal/10 pt-4">
                   {faq.answer}
                 </div>
               </div>
@@ -105,8 +105,8 @@ const FAQSection = () => {
         </div>
 
         {/* 추가 문의 안내 */}
-        <div className="mt-12 p-6 bg-primary-10 rounded-card-tablet text-center">
-          <p className="text-gray-90 mb-4">
+        <div className="mt-12 p-6 glass-heavy rounded-3xl text-center">
+          <p className="text-charcoal mb-4">
             더 궁금하신 사항이 있으신가요?
           </p>
           <a

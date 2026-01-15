@@ -52,7 +52,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-mesh">
       {/* Header */}
       <Header onMenuClick={() => setIsMenuOpen(true)} />
 

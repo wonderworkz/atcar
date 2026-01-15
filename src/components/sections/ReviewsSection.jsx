@@ -64,34 +64,34 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="px-4 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-90 mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
             많은 고객이 차살때를 선택하는 이유,
             <br className="hidden md:block" />
             직접 경험하세요
           </h2>
-          <p className="text-lg md:text-xl text-gray-60 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
             실제 고객님들의 생생한 후기를 확인해보세요
           </p>
         </div>
 
         {/* 후기 카드 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {reviews.map((review, index) => (
-            <Card key={index} hover={false} padding="medium">
+            <Card key={index} hover={false} padding="medium" glass={true}>
               {/* 별점 */}
               <div className="flex items-center gap-1 mb-4">{renderStars(review.rating)}</div>
 
               {/* 후기 내용 */}
-              <p className="text-gray-90 leading-relaxed mb-6">"{review.content}"</p>
+              <p className="text-charcoal leading-relaxed mb-6">"{review.content}"</p>
 
               {/* 작성자 정보 */}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-10">
-                <span className="font-semibold text-gray-90">{review.name}</span>
-                <span className="text-sm text-gray-60">{review.date}</span>
+              <div className="flex items-center justify-between pt-4 border-t border-charcoal/10">
+                <span className="font-semibold text-charcoal">{review.name}</span>
+                <span className="text-sm text-charcoal/60">{review.date}</span>
               </div>
             </Card>
           ))}

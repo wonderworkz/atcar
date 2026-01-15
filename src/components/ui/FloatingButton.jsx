@@ -24,13 +24,13 @@ const FloatingButton = ({ onConsultClick }) => {
         isVisible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="bg-white shadow-primary border-t border-gray-10">
+      <div className="glass-heavy border-t border-charcoal/10">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex gap-2 md:gap-4">
             {/* 전화 상담 버튼 */}
             <a
               href={`tel:${phoneNumber.replace(/-/g, '')}`}
-              className="flex-1 bg-primary text-white px-4 py-3 rounded-button font-semibold text-center hover:bg-primary-active transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
+              className="flex-1 bg-primary text-white px-4 py-3 rounded-xl font-semibold text-center hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 shadow-lg shadow-primary/20"
             >
               <svg
                 className="w-5 h-5"
@@ -50,7 +50,7 @@ const FloatingButton = ({ onConsultClick }) => {
             {/* 무료 상담 버튼 */}
             <button
               onClick={onConsultClick}
-              className="flex-1 bg-gray-90 text-white px-4 py-3 rounded-button font-semibold text-center hover:bg-gray-60 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
+              className="flex-1 bg-charcoal text-white px-4 py-3 rounded-xl font-semibold text-center hover:bg-charcoal/80 transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 shadow-lg"
             >
               <svg
                 className="w-5 h-5"
@@ -71,7 +71,7 @@ const FloatingButton = ({ onConsultClick }) => {
               href={kakaoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-yellow-400 text-gray-90 px-4 py-3 rounded-button font-semibold hover:bg-yellow-300 transition-all duration-300 flex items-center justify-center active:scale-95"
+              className="bg-yellow-400 text-charcoal px-4 py-3 rounded-xl font-semibold hover:bg-yellow-300 transition-all duration-300 flex items-center justify-center active:scale-95 shadow-lg"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 01-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3zm5.907 8.06l1.47-1.424a.472.472 0 00-.656-.681l-1.928 1.866V9.282a.472.472 0 00-.944 0v2.557a.471.471 0 00.119.315l2.14 2.076a.472.472 0 00.656-.681l-1.856-1.798-.001-.69zm-2.471 2.232a.472.472 0 00.472-.472v-3.54a.472.472 0 00-.944 0v3.54c0 .261.211.472.472.472zm-1.904.472h-1.416a.472.472 0 01-.472-.472v-3.54a.472.472 0 01.944 0v3.068h.944a.472.472 0 010 .944zm-2.36 0h-1.416a.472.472 0 01-.472-.472v-3.54a.472.472 0 01.472-.472h1.416a.472.472 0 010 .944h-.944v.639h.944a.472.472 0 010 .944h-.944v.94h.944a.472.472 0 010 .944l-.001.016z"></path>

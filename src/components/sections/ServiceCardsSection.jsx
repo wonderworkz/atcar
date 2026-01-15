@@ -60,43 +60,43 @@ const ServiceCardsSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="px-4 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-90 mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
             차살때만의 특별한 서비스
           </h2>
-          <p className="text-lg md:text-xl text-gray-60 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
             고객님의 성공적인 차량 구매를 위해 최선을 다합니다
           </p>
         </div>
 
         {/* 서비스 카드 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card key={index} hover={true} padding="large">
+            <Card key={index} hover={true} padding="large" glass={true}>
               {/* 아이콘 */}
               <div className="mb-6">
-                <div className="w-16 h-16 bg-primary-10 rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
                   {service.icon}
                 </div>
               </div>
 
               {/* 제목 */}
-              <h3 className="text-xl md:text-2xl font-bold text-gray-90 mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-charcoal mb-4">
                 {service.title}
               </h3>
 
               {/* 설명 */}
-              <p className="text-gray-60 mb-6">{service.description}</p>
+              <p className="text-charcoal/60 mb-6">{service.description}</p>
 
               {/* 특징 목록 */}
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
                   <li
                     key={featureIndex}
-                    className="flex items-center gap-2 text-sm text-gray-60"
+                    className="flex items-center gap-2 text-sm text-charcoal/60"
                   >
                     <svg
                       className="w-5 h-5 text-primary flex-shrink-0"
@@ -118,8 +118,8 @@ const ServiceCardsSection = () => {
         </div>
 
         {/* 추가 정보 */}
-        <div className="mt-16 p-8 bg-primary-10 rounded-card-desktop text-center">
-          <p className="text-lg text-gray-90">
+        <div className="mt-12 p-8 glass-heavy rounded-3xl text-center">
+          <p className="text-lg text-charcoal">
             <span className="font-semibold text-primary">2026년 1월 기준</span> 누적 견적{' '}
             <span className="font-bold text-primary">10,000건</span> 이상 달성!
           </p>
