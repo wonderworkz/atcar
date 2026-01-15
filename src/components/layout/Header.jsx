@@ -14,13 +14,6 @@ const Header = ({ onMenuClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { label: '견적 ON', path: '/leaserent/leaserent_search' },
-    { label: '재고 ON', path: '/leaserent/leaserent_pslist' },
-    { label: '이벤트', path: '/event/event_list' },
-    { label: '고객 후기', path: '/reviews/reviews_list' },
-  ];
-
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
