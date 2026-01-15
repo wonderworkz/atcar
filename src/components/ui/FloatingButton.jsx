@@ -61,11 +61,11 @@ const FloatingButton = ({ onConsultClick }) => {
           }}
         >
           <div
-            className={`flex items-center justify-between ${isOpen ? 'xl:flex-col xl:items-start' : ''}`}
+            className="flex items-center justify-between xl:flex-col xl:items-start"
             style={isOpen ? { flexDirection: 'column', alignItems: 'flex-start' } : {}}
           >
             {/* 좌측: 쉽고 빠른 견적 문의 */}
-            <div className="flex flex-col items-start gap-[10.5px]">
+            <div className={`left flex flex-col items-start gap-[10.5px] ${isOpen ? 'md:hidden' : ''}`}>
               <div className="flex items-center justify-center gap-2">
                 <p className="text-[26px] font-bold tracking-tighter text-gray-10">
                   쉽고 빠른 견적 문의
@@ -99,11 +99,11 @@ const FloatingButton = ({ onConsultClick }) => {
             </div>
 
             {/* 우측: 버튼 2개 */}
-            <div className={`flex w-full max-w-[482px] items-center justify-between gap-6 ${isOpen ? 'xl:mt-5 xl:max-w-full' : ''}`}>
-              <div className={`flex min-w-0 flex-1 basis-0 ${isOpen ? '[&.open]:hidden' : ''}`}>
+            <div className={`right flex w-full max-w-[482px] items-center justify-between gap-6 ${isOpen ? 'xl:mt-5 xl:max-w-full' : ''}`}>
+              <div className={`open flex min-w-0 flex-1 basis-0 ${isOpen ? 'hidden' : ''}`}>
                 <button
-                  className="flex h-[52px] items-center justify-center rounded-xl bg-[#fee500] px-4 active:bg-[#e0ca00] w-full"
-                  style={{ borderRadius: '52px' }}
+                  className="flex h-[52px] items-center justify-center rounded-xl bg-[#fee500] px-4 active:bg-[#e0ca00]"
+                  style={{ borderRadius: '52px', width: '100%' }}
                 >
                   <span className="inline-flex items-center gap-2">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -115,10 +115,10 @@ const FloatingButton = ({ onConsultClick }) => {
                   </span>
                 </button>
               </div>
-              <div className={`flex min-w-0 flex-1 basis-0 ${isOpen ? '[&.open]:absolute [&.open]:right-[50px] [&.open]:top-[36px] [&.open]:min-w-[229px]' : ''}`}>
+              <div className={`open flex min-w-0 flex-1 basis-0 ${isOpen ? 'absolute right-[50px] top-[36px] min-w-[229px]' : ''}`}>
                 <button
-                  onClick={handleSubmit}
-                  disabled={!isFormValid}
+                  onClick={isOpen ? handleSubmit : () => setIsOpen(true)}
+                  disabled={isOpen && !isFormValid}
                   className="submit flex h-[52px] w-full items-center justify-center rounded-full bg-c-primary text-sm font-bold tracking-tighter text-white active:bg-c-primary-active disabled:bg-[#ECECEC] disabled:text-[#9C9CAC]"
                 >
                   무료 견적 받아보기
@@ -131,45 +131,45 @@ const FloatingButton = ({ onConsultClick }) => {
           {isOpen && (
             <div className="mt-4 flex w-full flex-1 flex-col gap-4">
               <form className="flex flex-1 flex-col justify-between gap-4">
-                <div className="is-fixed flex flex-col gap-4">
-                  {/* 입력 필드 - 가로 배치 */}
-                  <ul className="input-list flex flex-col gap-4"
-                    style={{ flexDirection: isOpen ? 'row' : 'column', gap: isOpen ? '14px' : '16px' }}
-                  >
-                    <li className="flex flex-1 flex-col gap-1">
-                      <input
-                        className="h-[42px] rounded-[10px] border border-c-l-3 px-6 bg-white text-base"
-                        placeholder="이름을 입력하세요"
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                      />
-                    </li>
-                    <li className="flex flex-1 flex-col gap-1">
-                      <input
-                        className="h-[42px] rounded-[10px] border border-c-l-3 px-6 bg-white text-base"
-                        placeholder="휴대폰번호 (-제외)"
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                      />
-                    </li>
-                    <li className="flex flex-1 flex-col gap-1">
-                      <input
-                        className="h-[42px] rounded-[10px] border border-c-l-3 px-6 bg-white text-base"
-                        placeholder="차종을 입력하세요"
-                        type="text"
-                        name="carModel"
-                        value={formData.carModel}
-                        onChange={handleInputChange}
-                      />
-                    </li>
-                  </ul>
+                <div className="is-fixed">
+                  <div className="flex flex-col gap-4">
+                    {/* 입력 필드 - 가로 배치 */}
+                    <ul className="input-list flex gap-[14px]">
+                      <li className="flex flex-1 flex-col gap-1">
+                        <input
+                          className="h-[42px] rounded-[10px] border border-c-l-3 px-6 bg-white text-base"
+                          placeholder="이름을 입력하세요"
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                        />
+                      </li>
+                      <li className="flex flex-1 flex-col gap-1">
+                        <input
+                          className="h-[42px] rounded-[10px] border border-c-l-3 px-6 bg-white text-base"
+                          placeholder="휴대폰번호 (-제외)"
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                        />
+                      </li>
+                      <li className="flex flex-1 flex-col gap-1">
+                        <input
+                          className="h-[42px] rounded-[10px] border border-c-l-3 px-6 bg-white text-base"
+                          placeholder="차종을 입력하세요"
+                          type="text"
+                          name="carModel"
+                          value={formData.carModel}
+                          onChange={handleInputChange}
+                        />
+                      </li>
+                    </ul>
+                  </div>
 
                   {/* 체크박스 - 가로 배치 */}
-                  <ul className="check-list mt-2 flex flex-col gap-2 3xl:flex-wrap">
+                  <ul className="check-list mt-2 flex gap-2 flex-wrap">
                     <li>
                       <label className="flex items-center gap-1">
                         <input
@@ -192,7 +192,7 @@ const FloatingButton = ({ onConsultClick }) => {
                           className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
                         />
                         <p className="text-sm leading-5 text-c-ex text-nowrap">
-                          (필수) 개인정보 수집 및 활용동의 <span className="underline cursor-pointer">[보기]</span>
+                          (필수) 개인정보 수집 및 활용동의 <span>[보기]</span>
                         </p>
                       </label>
                     </li>
@@ -206,7 +206,7 @@ const FloatingButton = ({ onConsultClick }) => {
                           className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
                         />
                         <p className="text-sm leading-5 text-c-ex text-nowrap">
-                          (필수) 개인정보 제3자 제공 동의 <span className="underline cursor-pointer">[보기]</span>
+                          (필수) 개인정보 제3자 제공 동의 <span>[보기]</span>
                         </p>
                       </label>
                     </li>
@@ -220,7 +220,7 @@ const FloatingButton = ({ onConsultClick }) => {
                           className="w-[18px] h-[18px] rounded accent-[#3B82F6]"
                         />
                         <p className="text-sm leading-5 text-c-ex text-nowrap">
-                          (선택) 마케팅 활용동의 <span className="underline cursor-pointer">[보기]</span>
+                          (선택) 마케팅 활용동의 <span>[보기]</span>
                         </p>
                       </label>
                     </li>
