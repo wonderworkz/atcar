@@ -47,20 +47,6 @@ const Header = ({ onMenuClick }) => {
             <span className="font-bold tracking-tight text-xl text-charcoal">차살때</span>
           </div>
 
-          {/* 데스크톱 네비게이션 */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.path}
-                href={item.path}
-                className="text-gray-90 hover:text-primary font-medium transition-colors duration-200 relative group"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-              </a>
-            ))}
-          </nav>
-
           {/* 전화번호 & 햄버거 메뉴 */}
           <div className="flex items-center gap-4">
             {/* 전화번호 (태블릿 이상) */}
@@ -79,13 +65,13 @@ const Header = ({ onMenuClick }) => {
               >
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              <span className="hidden lg:inline">{phoneNumber}</span>
+              <span>{phoneNumber}</span>
             </a>
 
             {/* 햄버거 메뉴 버튼 */}
             <button
               onClick={onMenuClick}
-              className="size-10 lg:hidden glass rounded-full flex items-center justify-center text-charcoal hover:text-primary transition-colors"
+              className="size-10 glass rounded-full flex items-center justify-center text-charcoal hover:text-primary transition-colors"
               aria-label="메뉴 열기"
             >
               <svg
