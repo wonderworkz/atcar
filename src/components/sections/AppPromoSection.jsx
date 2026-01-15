@@ -1,135 +1,190 @@
 import React from 'react';
-import Button from '../ui/Button';
 
-const AppPromoSection = () => {
+const AppPromoSection = ({ onConsultClick }) => {
+  const bestModels = [
+    {
+      rank: 1,
+      rankStyle: 'bg-[#FFD2D3] text-[#dd3033] border-[#dd3033]',
+      image: 'https://atcar.kr/wp-content/uploads/2025/05/카니발-1-2.png',
+      name: '기아 카니발 하이브리드 9인승',
+      trim: '1.6 프레스티지 2WD',
+      price: '월 29만원~',
+    },
+    {
+      rank: 2,
+      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      image: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드-1.png',
+      name: '현대 팰리세이드 하이브리드 9인승',
+      trim: '2.5T 익스클루시브 2WD',
+      price: '월 37만원~',
+    },
+    {
+      rank: 3,
+      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      image: 'https://atcar.kr/wp-content/uploads/2025/05/그랜저-1.png',
+      name: '현대 그랜저 하이브리드 5인승',
+      trim: '1.6T 프리미엄 2WD',
+      price: '월 31만원~',
+    },
+    {
+      rank: 4,
+      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      image: 'https://atcar.kr/wp-content/uploads/2025/05/그랑콜레오스-1.png',
+      name: '르노 그랑콜레오스 5인승',
+      trim: 'E-Tech iconic 2WD',
+      price: '월 35만원~',
+    },
+    {
+      rank: 5,
+      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      image: 'https://atcar.kr/wp-content/uploads/2025/05/ev-3-1.png',
+      name: '기아 EV3 전기차 5인승',
+      trim: '에어 스탠다드 2WD',
+      price: '월 21만원~',
+    },
+  ];
+
   return (
     <section className="px-4 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">
-        <div className="glass-heavy rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* 텍스트 콘텐츠 */}
-            <div className="flex-1 text-center lg:text-left">
-              <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-bold tracking-widest uppercase mb-4">
-                NEW
-              </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-6">
-                차살때 앱 출시!
-              </h2>
-              <p className="text-lg md:text-xl text-charcoal/60 mb-8">
-                언제 어디서나 간편하게 견적을 확인하세요
-              </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="#"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-charcoal text-white rounded-xl hover:bg-charcoal/80 transition-all duration-300 shadow-lg"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                <div className="text-left">
-                  <div className="text-xs">Download on the</div>
-                  <div className="text-base font-semibold">App Store</div>
-                </div>
-              </a>
-
-              <a
-                href="#"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-charcoal text-white rounded-xl hover:bg-charcoal/80 transition-all duration-300 shadow-lg"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                </svg>
-                <div className="text-left">
-                  <div className="text-xs">GET IT ON</div>
-                  <div className="text-base font-semibold">Google Play</div>
-                </div>
-              </a>
-            </div>
-
-            {/* 앱 기능 */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-charcoal mb-1">간편한 견적</h4>
-                  <p className="text-sm text-charcoal/60">빠른 견적 확인</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-charcoal mb-1">실시간 알림</h4>
-                  <p className="text-sm text-charcoal/60">견적 및 출고 알림</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-charcoal mb-1">안전한 관리</h4>
-                  <p className="text-sm text-charcoal/60">견적 내역 저장</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 앱 목업 이미지 */}
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* 플레이스홀더 - 실제 앱 목업 이미지로 교체 */}
-              <div className="w-64 h-[500px] bg-gradient-to-br from-primary to-primary-active rounded-[3rem] p-3 shadow-2xl">
-                <div className="w-full h-full bg-white rounded-[2.5rem] flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="text-4xl font-bold text-primary mb-2">차살때</div>
-                    <div className="text-sm text-gray-60">App Mockup</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 장식 요소 */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-50"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary-10 rounded-full"></div>
-            </div>
-          </div>
+        {/* 섹션 헤더 */}
+        <div className="text-center mb-8 md:mb-12">
+          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
+            롯데렌터카의 우수한 상품을 저렴하게!
+          </h5>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal">
+            즉시출고 인기모델 BEST 5
+          </h3>
         </div>
+
+        {/* 카드 그리드 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {/* 카드 1 - 1등 강조 */}
+          <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:shadow-glass-heavy transition-shadow duration-300">
+            {/* 순위 뱃지 */}
+            <div className="absolute top-4 md:top-6 left-4 md:left-6">
+              <span className={`inline-block ${bestModels[0].rankStyle} font-semibold border rounded-lg px-4 py-2 text-base md:text-lg`}>
+                {bestModels[0].rank}
+              </span>
+            </div>
+
+            {/* 차량 이미지 */}
+            <div className="mt-12 mb-4">
+              <img
+                src={bestModels[0].image}
+                alt={bestModels[0].name}
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            {/* 차량 정보 */}
+            <h5 className="text-base md:text-lg font-bold text-charcoal mb-2">
+              {bestModels[0].name}
+            </h5>
+            <p className="text-sm text-charcoal/60 mb-3">
+              {bestModels[0].trim}
+            </p>
+            <h5 className="text-xl md:text-2xl font-bold text-primary mb-4">
+              {bestModels[0].price}
+            </h5>
+
+            {/* 상담신청 버튼 */}
+            <button
+              onClick={onConsultClick}
+              className="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-active transition-colors duration-300"
+            >
+              상담신청
+            </button>
+          </div>
+
+          {/* 카드 2 - 하이브리드 기획전 배너 */}
+          <div className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300">
+            {/* 배경 장식 */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
+            </div>
+
+            <div className="relative z-10">
+              {/* 텍스트 */}
+              <h4 className="text-xl md:text-2xl font-normal mb-2">
+                요즘 대세 <span className="font-black">하이브리드 기획전</span>
+              </h4>
+
+              {/* 차량 이미지 */}
+              <div className="my-6 md:my-8">
+                <img
+                  src="https://atcar.kr/wp-content/uploads/2025/05/코나.png"
+                  alt="코나 하이브리드"
+                  className="w-full max-w-[238px] h-auto object-contain mx-auto"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* 혜택 태그 */}
+              <div className="flex flex-wrap gap-2">
+                <div className="bg-[#F0F0F0] text-[#2e2e2e] rounded-full px-4 py-2 font-bold text-sm flex items-center gap-2">
+                  주유비절감
+                  <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 2L2 12H8L8 22L14 12H8L8 2Z" fill="#2e2e2e"/>
+                  </svg>
+                </div>
+                <div className="bg-[#F0F0F0] text-[#2e2e2e] rounded-full px-4 py-2 font-bold text-sm flex items-center gap-2">
+                  주차요금할인
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="6" width="12" height="8" rx="1" fill="#2e2e2e"/>
+                    <circle cx="5" cy="10" r="1.5" fill="#F0F0F0"/>
+                    <circle cx="11" cy="10" r="1.5" fill="#F0F0F0"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 카드 3-5 */}
+          {bestModels.slice(1).map((model, index) => (
+            <div
+              key={index}
+              className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:shadow-glass-heavy transition-shadow duration-300"
+            >
+              {/* 순위 뱃지 */}
+              <div className="absolute top-4 md:top-6 left-4 md:left-6">
+                <span className={`inline-block ${model.rankStyle} font-semibold border rounded-lg px-4 py-2 text-base md:text-lg`}>
+                  {model.rank}
+                </span>
+              </div>
+
+              {/* 차량 이미지 */}
+              <div className="mt-12 mb-4">
+                <img
+                  src={model.image}
+                  alt={model.name}
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* 차량 정보 */}
+              <h6 className="text-base md:text-lg font-bold text-charcoal mb-2">
+                {model.name}
+              </h6>
+              <p className="text-sm text-charcoal/60 mb-3">
+                {model.trim}
+              </p>
+              <h6 className="text-xl md:text-2xl font-bold text-primary mb-4">
+                {model.price}
+              </h6>
+
+              {/* 상담신청 버튼 */}
+              <button
+                onClick={onConsultClick}
+                className="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-active transition-colors duration-300"
+              >
+                상담신청
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </section>

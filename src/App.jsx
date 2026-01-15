@@ -77,7 +77,7 @@ function App() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          <AppPromoSection />
+          <AppPromoSection onConsultClick={openConsultModal} />
         </motion.div>
 
         {/* Service Cards Section */}
