@@ -6,13 +6,13 @@ const CarReviewSection = () => {
       videoId: 'N5z8n277zZ8',
       tag: '팰리세이드 가솔린 익스클루시브 7인승',
       title: '팰리세이드 리뷰',
-      carImage: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드.png',
+      carImage: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드-1.png',
     },
     {
       videoId: 'h1iTdQfmXG4',
       tag: '카니발 하이브리드 노블레스 9인승',
       title: '카니발 리뷰',
-      carImage: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드.png',
+      carImage: 'https://atcar.kr/wp-content/uploads/2025/05/카니발-1-2.png',
     },
   ];
 
@@ -50,24 +50,29 @@ const CarReviewSection = () => {
 
               {/* 카드 정보 영역 */}
               <div className="p-6 md:p-8">
-                {/* 태그 & 타이틀 */}
-                <div className="mb-4">
-                  <span className="inline-block text-sm md:text-base text-primary font-medium mb-2">
-                    {review.tag}
-                  </span>
-                  <h4 className="text-xl md:text-2xl font-bold text-charcoal">
-                    {review.title}
-                  </h4>
-                </div>
+                <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-4 md:p-6">
+                  {/* 텍스트와 이미지를 가로로 배치 */}
+                  <div className="flex items-center justify-between gap-4">
+                    {/* 좌측: 태그 & 타이틀 */}
+                    <div className="flex-1 min-w-0">
+                      <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
+                        {review.tag}
+                      </span>
+                      <h4 className="text-lg md:text-xl font-bold text-charcoal">
+                        {review.title}
+                      </h4>
+                    </div>
 
-                {/* 차량 이미지 */}
-                <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 md:p-8">
-                  <img
-                    src={review.carImage}
-                    alt={review.title}
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                  />
+                    {/* 우측: 차량 이미지 (작게) */}
+                    <div className="flex-shrink-0 w-24 md:w-32">
+                      <img
+                        src={review.carImage}
+                        alt={review.title}
+                        className="w-full h-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
