@@ -3,7 +3,7 @@ import React from 'react';
 const HeroSection = ({ onConsultClick }) => {
   return (
     <section className="px-4 pt-2 pb-8">
-      <div className="relative h-[420px] md:h-[500px] lg:h-[600px] rounded-3xl md:rounded-[2.5rem] overflow-hidden group">
+      <div className="relative h-[500px] md:h-[600px] lg:h-[700px] rounded-3xl md:rounded-[2.5rem] overflow-hidden group">
         {/* 배경 비디오 */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
