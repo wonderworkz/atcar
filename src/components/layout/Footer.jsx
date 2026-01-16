@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* 회사 정보 */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">차살때</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">앗차가와</h3>
             <p className="text-white/70 mb-4">
               차를 고르는 가장 똑똑한 방법
             </p>
@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="text-sm text-white/70 space-y-2">
             <p>사업자등록번호: 000-00-00000 | 대표자: 홍길동</p>
             <p>주소: 서울특별시 강남구 테헤란로 000</p>
-            <p className="mt-4">Copyright © {currentYear} 차살때. All rights reserved.</p>
+            <p className="mt-4">Copyright © {currentYear} 앗차가와. All rights reserved.</p>
           </div>
         </div>
       </div>

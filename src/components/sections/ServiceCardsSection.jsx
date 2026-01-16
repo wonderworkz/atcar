@@ -65,7 +65,7 @@ const ServiceCardsSection = () => {
         {/* 섹션 헤더 */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            차살때만의 특별한 서비스
+            앗차가와만의 특별한 서비스
           </h2>
           <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
             고객님의 성공적인 차량 구매를 위해 최선을 다합니다

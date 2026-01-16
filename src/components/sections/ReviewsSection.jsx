@@ -16,7 +16,7 @@ const ReviewsSection = () => {
       date: '2026.01',
       rating: 5,
       content:
-        '다른 곳보다 조건이 훨씬 좋았고, 7일 만에 차를 받았어요. 차살때 강력 추천합니다!',
+        '다른 곳보다 조건이 훨씬 좋았고, 7일 만에 차를 받았어요. 앗차가와 강력 추천합니다!',
     },
     {
       name: '박*수',
@@ -69,7 +69,7 @@ const ReviewsSection = () => {
         {/* 섹션 헤더 */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            많은 고객이 차살때를 선택하는 이유,
+            많은 고객이 앗차가와를 선택하는 이유,
             <br className="hidden md:block" />
             직접 경험하세요
           </h2>

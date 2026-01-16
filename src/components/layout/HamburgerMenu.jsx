@@ -44,7 +44,11 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
       >
         {/* Header */}
         <div className="sticky top-0 bg-white px-6 py-4 flex items-center justify-between">
-          <span className="text-2xl font-bold text-primary">차살때</span>
+          <img
+            src="/atcar/images/atcar_logo.png"
+            alt="앗차가와"
+            className="h-10"
+          />
           <button
             onClick={onClose}
             className="p-2 text-gray-60 hover:text-gray-90 hover:bg-gray-10 rounded-full transition-colors"

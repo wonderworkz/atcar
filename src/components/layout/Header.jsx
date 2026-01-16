@@ -23,21 +23,12 @@ const Header = ({ onMenuClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* 로고 */}
-          <div className="flex items-center gap-2">
-            <div className="size-10 bg-primary rounded-xl flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className="font-bold tracking-tight text-xl text-charcoal">차살때</span>
+          <div className="flex items-center">
+            <img
+              src="/atcar/images/atcar_logo.png"
+              alt="앗차가와"
+              className="h-10"
+            />
           </div>
 
           {/* 전화번호 & 햄버거 메뉴 */}

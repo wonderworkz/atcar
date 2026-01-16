@@ -28,7 +28,7 @@ const TrustSection = () => {
             믿을 수 있는 서비스
           </h2>
           <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
-            차살때는 계약부터 출고까지 모든 과정을 책임지는 보증 시스템을 운영합니다
+            앗차가와는 계약부터 출고까지 모든 과정을 책임지는 보증 시스템을 운영합니다
           </p>
         </div>
 
@@ -67,7 +67,7 @@ const TrustSection = () => {
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-bold text-charcoal mb-3">책임 보증 시스템</h3>
               <p className="text-charcoal/60 leading-relaxed">
-                차살때는 견적부터 출고, 사후관리까지 모든 과정을 책임집니다. 투명한
+                앗차가와는 견적부터 출고, 사후관리까지 모든 과정을 책임집니다. 투명한
                 프로세스와 명확한 약속으로 고객님의 만족을 보장합니다.
               </p>
             </div>
