@@ -50,27 +50,25 @@ const CarReviewSection = () => {
 
               {/* 텍스트 & 이미지 영역 */}
               <div className="p-4 md:p-6">
-                <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-4 md:p-6">
-                  <div className="flex items-center justify-between gap-4">
-                    {/* 좌측: 태그 & 타이틀 */}
-                    <div className="flex-1 min-w-0">
-                      <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
-                        {review.tag}
-                      </span>
-                      <h4 className="text-lg md:text-xl font-bold text-charcoal">
-                        {review.title}
-                      </h4>
-                    </div>
+                <div className="flex items-center justify-between gap-4">
+                  {/* 좌측: 태그 & 타이틀 */}
+                  <div className="flex-1 min-w-0">
+                    <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
+                      {review.tag}
+                    </span>
+                    <h4 className="text-lg md:text-xl font-bold text-charcoal">
+                      {review.title}
+                    </h4>
+                  </div>
 
-                    {/* 우측: 차량 이미지 (작게) */}
-                    <div className="flex-shrink-0 w-24 md:w-32 lg:w-40">
-                      <img
-                        src={review.carImage}
-                        alt={review.title}
-                        className="w-full h-auto object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+                  {/* 우측: 차량 이미지 (작게) */}
+                  <div className="flex-shrink-0 w-24 md:w-32 lg:w-40">
+                    <img
+                      src={review.carImage}
+                      alt={review.title}
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
