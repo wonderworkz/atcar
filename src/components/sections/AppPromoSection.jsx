@@ -68,7 +68,7 @@ const AppPromoSection = ({ onConsultClick }) => {
             </div>
 
             <div className="relative z-10">
-              {/* 텍스트 */}
+              {/* 헤더 텍스트 */}
               <h4 className="text-xl md:text-2xl font-normal mb-2">
                 요즘 대세 <span className="font-black">하이브리드 기획전</span>
               </h4>
@@ -79,14 +79,26 @@ const AppPromoSection = ({ onConsultClick }) => {
               </p>
 
               {/* 차량 이미지 */}
-              <div className="my-6 md:my-8">
+              <div className="mb-4">
                 <img
                   src="https://atcar.kr/wp-content/uploads/2025/05/코나.png"
                   alt="코나 하이브리드"
-                  className="w-full max-w-[238px] h-auto object-contain mx-auto"
+                  className="w-full h-auto object-contain"
                   loading="lazy"
                 />
               </div>
+
+              {/* 차량 정보 */}
+              <h6 className="text-base md:text-lg font-bold text-white mb-2">
+                압도적 연비의 하이브리드
+              </h6>
+              <p className="text-sm text-white/80 mb-3">
+                친환경차 주차요금 할인 혜택까지!
+              </p>
+              <h6 className="text-xl md:text-2xl font-bold text-white mb-4">
+                {/* 공백 유지 - 가격 표시 없음 */}
+                &nbsp;
+              </h6>
 
               {/* 상담신청 버튼 */}
               <button
