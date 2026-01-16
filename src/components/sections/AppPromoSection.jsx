@@ -73,6 +73,11 @@ const AppPromoSection = ({ onConsultClick }) => {
                 요즘 대세 <span className="font-black">하이브리드 기획전</span>
               </h4>
 
+              {/* 서브 텍스트 */}
+              <p className="text-sm text-white mb-3">
+                원하는 차종을 문의해보세요!
+              </p>
+
               {/* 차량 이미지 */}
               <div className="my-6 md:my-8">
                 <img
@@ -83,23 +88,13 @@ const AppPromoSection = ({ onConsultClick }) => {
                 />
               </div>
 
-              {/* 혜택 태그 */}
-              <div className="flex flex-wrap gap-2">
-                <div className="bg-[#F0F0F0] text-[#2e2e2e] rounded-full px-4 py-2 font-bold text-sm flex items-center gap-2">
-                  주유비절감
-                  <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 2L2 12H8L8 22L14 12H8L8 2Z" fill="#2e2e2e"/>
-                  </svg>
-                </div>
-                <div className="bg-[#F0F0F0] text-[#2e2e2e] rounded-full px-4 py-2 font-bold text-sm flex items-center gap-2">
-                  주차요금할인
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="6" width="12" height="8" rx="1" fill="#2e2e2e"/>
-                    <circle cx="5" cy="10" r="1.5" fill="#F0F0F0"/>
-                    <circle cx="11" cy="10" r="1.5" fill="#F0F0F0"/>
-                  </svg>
-                </div>
-              </div>
+              {/* 상담신청 버튼 */}
+              <button
+                onClick={onConsultClick}
+                className="w-full py-3 bg-white text-[#3B82F6] rounded-xl font-semibold hover:bg-white/90 transition-colors duration-300"
+              >
+                상담신청
+              </button>
             </div>
           </div>
 
