@@ -29,6 +29,7 @@ import { submitConsultation } from './utils/api';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFloatingOpen, setIsFloatingOpen] = useState(false);
 
   const handleConsultSubmit = async (formData) => {
     try {
@@ -45,7 +46,7 @@ function App() {
   };
 
   const openConsultModal = () => {
-    setIsModalOpen(true);
+    setIsFloatingOpen(true);
   };
 
   const closeConsultModal = () => {
@@ -146,7 +147,11 @@ function App() {
       <Footer />
 
       {/* Floating Button */}
-      <FloatingButton onConsultClick={openConsultModal} />
+      <FloatingButton
+        onConsultClick={handleConsultSubmit}
+        isOpen={isFloatingOpen}
+        setIsOpen={setIsFloatingOpen}
+      />
 
       {/* Consultation Modal */}
       <Modal

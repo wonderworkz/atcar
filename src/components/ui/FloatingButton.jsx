@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
-const FloatingButton = ({ onConsultClick }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: externalSetIsOpen }) => {
+  // 외부에서 isOpen을 전달받으면 사용하고, 없으면 내부 state 사용
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  const setIsOpen = externalSetIsOpen || setInternalIsOpen;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
