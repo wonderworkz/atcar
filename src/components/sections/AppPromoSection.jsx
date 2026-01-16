@@ -111,7 +111,7 @@ const AppPromoSection = ({ onConsultClick }) => {
             >
               {/* 순위 뱃지 */}
               <div className="absolute top-4 md:top-6 left-4 md:left-6">
-                <span className={`inline-block ${model.rankStyle} font-semibold border rounded-lg px-4 py-2 text-base md:text-lg`}>
+                <span className={`inline-flex items-center justify-center ${model.rankStyle} font-semibold border-2 rounded-full w-10 h-10 md:w-12 md:h-12 text-base md:text-lg`}>
                   {model.rank}
                 </span>
               </div>
