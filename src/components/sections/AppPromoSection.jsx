@@ -79,11 +79,11 @@ const AppPromoSection = ({ onConsultClick }) => {
               </p>
 
               {/* 차량 이미지 */}
-              <div className="flex-1 flex items-center justify-center my-6 md:my-8">
+              <div className="flex-1 flex items-center justify-center my-2 md:my-4">
                 <img
                   src="https://atcar.kr/wp-content/uploads/2025/05/코나.png"
                   alt="코나 하이브리드"
-                  className="w-full max-w-[238px] h-auto object-contain mx-auto"
+                  className="w-full max-w-[357px] h-auto object-contain mx-auto"
                   loading="lazy"
                 />
               </div>
