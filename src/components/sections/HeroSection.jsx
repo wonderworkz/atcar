@@ -3,23 +3,22 @@ import React from 'react';
 const HeroSection = ({ onConsultClick }) => {
   return (
     <section className="px-4 pt-2 pb-8">
-      <div className="relative h-[500px] md:h-[600px] lg:h-[700px] rounded-3xl md:rounded-[2.5rem] overflow-hidden group">
-        {/* 배경 비디오 */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src="http://cheon0125.mycafe24.com/wp-content/uploads/2025/05/앗차가와-영상.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          controlsList="nodownload"
-        />
+      <div className="relative h-[420px] md:h-[500px] lg:h-[600px] rounded-3xl md:rounded-[2.5rem] overflow-hidden group flex flex-col">
+        {/* 배경 비디오 - 상단 배치 */}
+        <div className="relative w-full" style={{ height: '40%' }}>
+          <video
+            className="absolute top-0 left-0 w-full h-full object-contain"
+            src="http://cheon0125.mycafe24.com/wp-content/uploads/2025/05/앗차가와-영상.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controlsList="nodownload"
+          />
+        </div>
 
-        {/* 그라데이션 오버레이 */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent"></div>
-
-        {/* 콘텐츠 */}
-        <div className="absolute inset-x-4 bottom-6 p-6 md:p-8 glass-heavy rounded-3xl">
+        {/* 하단 글래스모피즘 영역 */}
+        <div className="flex-1 glass-heavy p-6 md:p-8">
           {/* 배지 */}
           <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-bold tracking-widest uppercase mb-3">
             Premium Service
