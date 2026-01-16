@@ -63,13 +63,13 @@ const ServiceCardsSection = () => {
     <section id="services" className="px-4 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            앗차가와만의 특별한 서비스
-          </h2>
-          <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             고객님의 성공적인 차량 구매를 위해 최선을 다합니다
-          </p>
+          </h5>
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal">
+            앗차가와만의 특별한 서비스
+          </h3>
         </div>
 
         {/* 서비스 카드 그리드 */}

@@ -1,6 +1,4 @@
 import React from 'react';
-import Card from '../ui/Card';
-import Button from '../ui/Button';
 
 const ReviewsSection = () => {
   const reviews = [
@@ -52,8 +50,8 @@ const ReviewsSection = () => {
     return [...Array(5)].map((_, index) => (
       <svg
         key={index}
-        className={`w-5 h-5 ${
-          index < rating ? 'text-yellow-400 fill-current' : 'text-gray-10'
+        className={`w-4 h-4 md:w-5 md:h-5 ${
+          index < rating ? 'text-accent fill-current' : 'text-white/20'
         }`}
         viewBox="0 0 20 20"
         fill="currentColor"
@@ -64,48 +62,49 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section className="px-4 py-12 md:py-16">
+    <section className="px-4 py-12 md:py-16 bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            많은 고객이 앗차가와를 선택하는 이유,
-            <br className="hidden md:block" />
-            직접 경험하세요
-          </h2>
-          <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
-            실제 고객님들의 생생한 후기를 확인해보세요
-          </p>
+        <div className="text-center mb-8 md:mb-12">
+          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
+            앗차가와를 선택하는 이유
+          </h5>
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-white">
+            실제 후기를 만나보세요
+          </h3>
         </div>
 
-        {/* 후기 카드 그리드 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* 후기 카드 가로 스크롤 */}
+        <div className="flex overflow-x-auto no-scrollbar gap-4 md:gap-6 px-6 pb-4">
           {reviews.map((review, index) => (
-            <Card key={index} hover={false} padding="medium" glass={true}>
+            <div
+              key={index}
+              className="glass-heavy-dark w-[280px] md:w-[420px] lg:w-[480px] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] flex flex-col gap-4 flex-shrink-0"
+            >
               {/* 별점 */}
-              <div className="flex items-center gap-1 mb-4">{renderStars(review.rating)}</div>
+              <div className="flex items-center gap-1 text-accent">
+                {renderStars(review.rating)}
+              </div>
 
               {/* 후기 내용 */}
-              <p className="text-charcoal leading-relaxed mb-6">"{review.content}"</p>
+              <p className="text-sm md:text-base text-white leading-relaxed italic">
+                "{review.content}"
+              </p>
 
               {/* 작성자 정보 */}
-              <div className="flex items-center justify-between pt-4 border-t border-charcoal/10">
-                <span className="font-semibold text-charcoal">{review.name}</span>
-                <span className="text-sm text-charcoal/60">{review.date}</span>
+              <div className="flex items-center gap-3 mt-auto">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/20">
+                  <span className="text-xs font-bold text-white">
+                    {review.name.charAt(0)}
+                  </span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-white">{review.name}</span>
+                  <span className="text-xs text-white/60">{review.date}</span>
+                </div>
               </div>
-            </Card>
+            </div>
           ))}
-        </div>
-
-        {/* 더보기 버튼 */}
-        <div className="text-center">
-          <Button
-            variant="outline"
-            size="large"
-            onClick={() => (window.location.href = '/reviews/reviews_list')}
-          >
-            후기 더 보기
-          </Button>
         </div>
       </div>
     </section>

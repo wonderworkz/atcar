@@ -24,7 +24,7 @@ const CarReviewSection = () => {
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             차종을 못 정하셨다면?
           </h5>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal">
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal">
             앗차가와가 추천하는 신차!
           </h3>
         </div>

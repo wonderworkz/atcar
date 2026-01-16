@@ -15,15 +15,15 @@ const CTASection = ({ onConsultClick }) => {
           </div>
 
           <div className="relative z-10 text-center">
-            {/* 헤드라인 */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              지금 바로 무료 견적을 받아보세요
-            </h2>
-
             {/* 서브헤드라인 */}
-            <p className="text-lg md:text-xl mb-12 opacity-90">
+            <h5 className="text-sm md:text-base text-white font-semibold mb-2 md:mb-3 opacity-90">
               전문가가 24시간 대기 중입니다
-            </p>
+            </h5>
+
+            {/* 헤드라인 */}
+            <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold mb-12">
+              지금 바로 무료 견적을 받아보세요
+            </h3>
 
             {/* CTA 버튼 */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

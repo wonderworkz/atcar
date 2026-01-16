@@ -49,13 +49,13 @@ const FAQSection = () => {
     <section className="px-4 py-12 md:py-16">
       <div className="max-w-4xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            자주 묻는 질문
-          </h2>
-          <p className="text-lg md:text-xl text-charcoal/60">
+        <div className="text-center mb-8 md:mb-12">
+          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             궁금하신 내용을 빠르게 확인해보세요
-          </p>
+          </h5>
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal">
+            자주 묻는 질문
+          </h3>
         </div>
 
         {/* FAQ 아코디언 */}

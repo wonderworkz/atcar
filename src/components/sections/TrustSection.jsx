@@ -23,13 +23,13 @@ const TrustSection = () => {
     <section className="px-4 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            믿을 수 있는 서비스
-          </h2>
-          <p className="text-lg md:text-xl text-charcoal/60 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             앗차가와는 계약부터 출고까지 모든 과정을 책임지는 보증 시스템을 운영합니다
-          </p>
+          </h5>
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal">
+            믿을 수 있는 서비스
+          </h3>
         </div>
 
         {/* 통계 */}

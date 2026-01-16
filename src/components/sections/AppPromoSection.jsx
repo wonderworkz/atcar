@@ -45,14 +45,14 @@ const AppPromoSection = ({ onConsultClick }) => {
   ];
 
   return (
-    <section className="px-4 py-12 md:py-16">
+    <section className="px-4 py-12 md:py-16 bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
         <div className="text-center mb-8 md:mb-12">
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카의 우수한 상품을 저렴하게!
           </h5>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-charcoal">
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#FFFFFF]">
             즉시출고 인기모델 BEST 5
           </h3>
         </div>
@@ -102,7 +102,7 @@ const AppPromoSection = ({ onConsultClick }) => {
           {bestModels.map((model, index) => (
             <div
               key={index}
-              className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:shadow-glass-heavy transition-shadow duration-300"
+              className="glass-heavy-dark rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:bg-white/10 transition-all duration-300"
             >
               {/* 순위 뱃지 */}
               <div className="absolute top-4 md:top-6 left-4 md:left-6">
@@ -122,10 +122,10 @@ const AppPromoSection = ({ onConsultClick }) => {
               </div>
 
               {/* 차량 정보 */}
-              <h6 className="text-base md:text-lg font-bold text-charcoal mb-2">
+              <h6 className="text-base md:text-lg font-bold text-white mb-2">
                 {model.name}
               </h6>
-              <p className="text-sm text-charcoal/60 mb-3">
+              <p className="text-sm text-white/40 mb-3">
                 {model.trim}
               </p>
               <h6 className="text-xl md:text-2xl font-bold text-primary mb-4">
@@ -135,7 +135,7 @@ const AppPromoSection = ({ onConsultClick }) => {
               {/* 상담신청 버튼 */}
               <button
                 onClick={onConsultClick}
-                className="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-active transition-colors duration-300"
+                className="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-colors duration-300"
               >
                 상담신청
               </button>
