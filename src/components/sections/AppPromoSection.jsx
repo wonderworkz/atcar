@@ -60,15 +60,15 @@ const AppPromoSection = ({ onConsultClick }) => {
         {/* 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {/* 카드 1 - 하이브리드 기획전 배너 */}
-          <div className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300">
+          <div className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300 flex flex-col">
             {/* 배경 장식 */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-48 h-48 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
             </div>
 
-            <div className="relative z-10">
-              {/* 헤더 텍스트 */}
+            <div className="relative z-10 flex-1 flex flex-col">
+              {/* 텍스트 */}
               <h4 className="text-xl md:text-2xl font-normal mb-2">
                 요즘 대세 <span className="font-black">하이브리드 기획전</span>
               </h4>
@@ -79,31 +79,19 @@ const AppPromoSection = ({ onConsultClick }) => {
               </p>
 
               {/* 차량 이미지 */}
-              <div className="mb-4">
+              <div className="flex-1 flex items-center justify-center my-6 md:my-8">
                 <img
                   src="https://atcar.kr/wp-content/uploads/2025/05/코나.png"
                   alt="코나 하이브리드"
-                  className="w-full h-auto object-contain"
+                  className="w-full max-w-[238px] h-auto object-contain mx-auto"
                   loading="lazy"
                 />
               </div>
 
-              {/* 차량 정보 */}
-              <h6 className="text-base md:text-lg font-bold text-white mb-2">
-                압도적 연비의 하이브리드
-              </h6>
-              <p className="text-sm text-white/80 mb-3">
-                친환경차 주차요금 할인 혜택까지!
-              </p>
-              <h6 className="text-xl md:text-2xl font-bold text-white mb-4">
-                {/* 공백 유지 - 가격 표시 없음 */}
-                &nbsp;
-              </h6>
-
               {/* 상담신청 버튼 */}
               <button
                 onClick={onConsultClick}
-                className="w-full py-3 bg-white text-[#3B82F6] rounded-xl font-semibold hover:bg-white/90 transition-colors duration-300"
+                className="w-full py-3 bg-white text-[#3B82F6] rounded-xl font-semibold hover:bg-white/90 transition-colors duration-300 mt-auto"
               >
                 상담신청
               </button>
