@@ -4,7 +4,7 @@ const AppPromoSection = ({ onConsultClick }) => {
   const bestModels = [
     {
       rank: 1,
-      rankStyle: 'bg-[#FFD2D3] text-[#dd3033] border-[#dd3033]',
+      rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
       image: 'https://atcar.kr/wp-content/uploads/2025/05/카니발-1-2.png',
       name: '기아 카니발 하이브리드 9인승',
       trim: '1.6 프레스티지 2WD',
@@ -12,7 +12,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     },
     {
       rank: 2,
-      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
       image: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드-1.png',
       name: '현대 팰리세이드 하이브리드 9인승',
       trim: '2.5T 익스클루시브 2WD',
@@ -20,7 +20,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     },
     {
       rank: 3,
-      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
       image: 'https://atcar.kr/wp-content/uploads/2025/05/그랜저-1.png',
       name: '현대 그랜저 하이브리드 5인승',
       trim: '1.6T 프리미엄 2WD',
@@ -28,7 +28,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     },
     {
       rank: 4,
-      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
       image: 'https://atcar.kr/wp-content/uploads/2025/05/그랑콜레오스-1.png',
       name: '르노 그랑콜레오스 5인승',
       trim: 'E-Tech iconic 2WD',
@@ -36,7 +36,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     },
     {
       rank: 5,
-      rankStyle: 'bg-[#D8D8D8] text-[#111111] border-[#111111]',
+      rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
       image: 'https://atcar.kr/wp-content/uploads/2025/05/ev-3-1.png',
       name: '기아 EV3 전기차 5인승',
       trim: '에어 스탠다드 2WD',
@@ -59,46 +59,7 @@ const AppPromoSection = ({ onConsultClick }) => {
 
         {/* 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {/* 카드 1 - 1등 강조 */}
-          <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:shadow-glass-heavy transition-shadow duration-300">
-            {/* 순위 뱃지 */}
-            <div className="absolute top-4 md:top-6 left-4 md:left-6">
-              <span className={`inline-block ${bestModels[0].rankStyle} font-semibold border rounded-lg px-4 py-2 text-base md:text-lg`}>
-                {bestModels[0].rank}
-              </span>
-            </div>
-
-            {/* 차량 이미지 */}
-            <div className="mt-12 mb-4">
-              <img
-                src={bestModels[0].image}
-                alt={bestModels[0].name}
-                className="w-full h-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-
-            {/* 차량 정보 */}
-            <h5 className="text-base md:text-lg font-bold text-charcoal mb-2">
-              {bestModels[0].name}
-            </h5>
-            <p className="text-sm text-charcoal/60 mb-3">
-              {bestModels[0].trim}
-            </p>
-            <h5 className="text-xl md:text-2xl font-bold text-primary mb-4">
-              {bestModels[0].price}
-            </h5>
-
-            {/* 상담신청 버튼 */}
-            <button
-              onClick={onConsultClick}
-              className="w-full py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-active transition-colors duration-300"
-            >
-              상담신청
-            </button>
-          </div>
-
-          {/* 카드 2 - 하이브리드 기획전 배너 */}
+          {/* 카드 1 - 하이브리드 기획전 배너 */}
           <div className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300">
             {/* 배경 장식 */}
             <div className="absolute inset-0 opacity-10">
@@ -142,8 +103,8 @@ const AppPromoSection = ({ onConsultClick }) => {
             </div>
           </div>
 
-          {/* 카드 3-5 */}
-          {bestModels.slice(1).map((model, index) => (
+          {/* 카드 2-6 - 나머지 모델들 */}
+          {bestModels.map((model, index) => (
             <div
               key={index}
               className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:shadow-glass-heavy transition-shadow duration-300"
