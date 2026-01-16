@@ -4,20 +4,16 @@ const HeroSection = ({ onConsultClick }) => {
   return (
     <section className="px-4 pt-2 pb-8">
       <div className="relative h-[420px] md:h-[500px] lg:h-[600px] rounded-3xl md:rounded-[2.5rem] overflow-hidden group">
-        {/* 배경 이미지 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary-10">
-          <svg
-            className="absolute inset-0 w-full h-full opacity-10"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z"
-              fill="white"
-              opacity="0.1"
-            />
-          </svg>
-        </div>
+        {/* 배경 비디오 */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="http://cheon0125.mycafe24.com/wp-content/uploads/2025/05/앗차가와-영상.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          controlsList="nodownload"
+        />
 
         {/* 그라데이션 오버레이 */}
         <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent"></div>
