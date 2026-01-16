@@ -32,42 +32,45 @@ const CarReviewSection = () => {
         {/* 리뷰 카드 그리드 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {reviews.map((review, index) => (
-            <div key={index} className="flex flex-col gap-4 md:gap-6">
+            <div
+              key={index}
+              className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] overflow-hidden hover:shadow-glass-heavy transition-shadow duration-300"
+            >
               {/* 비디오 영역 */}
-              <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] overflow-hidden hover:shadow-glass-heavy transition-shadow duration-300">
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${review.videoId}?controls=1&rel=0`}
-                    title={review.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${review.videoId}?controls=1&rel=0`}
+                  title={review.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
 
               {/* 텍스트 & 이미지 영역 */}
-              <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-6 hover:shadow-glass-heavy transition-shadow duration-300">
-                <div className="flex items-center justify-between gap-4">
-                  {/* 좌측: 태그 & 타이틀 */}
-                  <div className="flex-1 min-w-0">
-                    <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
-                      {review.tag}
-                    </span>
-                    <h4 className="text-lg md:text-xl font-bold text-charcoal">
-                      {review.title}
-                    </h4>
-                  </div>
+              <div className="p-4 md:p-6">
+                <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-4 md:p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    {/* 좌측: 태그 & 타이틀 */}
+                    <div className="flex-1 min-w-0">
+                      <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
+                        {review.tag}
+                      </span>
+                      <h4 className="text-lg md:text-xl font-bold text-charcoal">
+                        {review.title}
+                      </h4>
+                    </div>
 
-                  {/* 우측: 차량 이미지 (작게) */}
-                  <div className="flex-shrink-0 w-24 md:w-32 lg:w-40">
-                    <img
-                      src={review.carImage}
-                      alt={review.title}
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                    />
+                    {/* 우측: 차량 이미지 (작게) */}
+                    <div className="flex-shrink-0 w-24 md:w-32 lg:w-40">
+                      <img
+                        src={review.carImage}
+                        alt={review.title}
+                        className="w-full h-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
