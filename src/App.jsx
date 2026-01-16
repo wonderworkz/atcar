@@ -9,6 +9,7 @@ import HamburgerMenu from './components/layout/HamburgerMenu';
 // Section Components
 import HeroSection from './components/sections/HeroSection';
 import AppPromoSection from './components/sections/AppPromoSection';
+import CarReviewSection from './components/sections/CarReviewSection';
 import ServiceCardsSection from './components/sections/ServiceCardsSection';
 import TrustSection from './components/sections/TrustSection';
 import ReviewsSection from './components/sections/ReviewsSection';
@@ -78,6 +79,16 @@ function App() {
           viewport={{ once: true, margin: '-100px' }}
         >
           <AppPromoSection onConsultClick={openConsultModal} />
+        </motion.div>
+
+        {/* Car Review Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <CarReviewSection />
         </motion.div>
 
         {/* Service Cards Section */}
