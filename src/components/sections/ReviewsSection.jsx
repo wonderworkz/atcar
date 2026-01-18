@@ -101,7 +101,7 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section className="px-4 py-12 md:py-16 bg-[#0B1120]">
+    <section className="px-4 py-20 md:py-[120px] bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
         <div className="text-center mb-8 md:mb-12">

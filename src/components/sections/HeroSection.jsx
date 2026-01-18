@@ -1,8 +1,32 @@
 import React from 'react';
 
 const HeroSection = ({ onConsultClick }) => {
+  const services = [
+    {
+      icon: 'verified_user',
+      iconColor: 'text-primary',
+      bgColor: 'bg-primary/20',
+      title: '보험료·세금 부담 없는 견적',
+      description: '복잡한 계산 없이 명확하고 투명한 견적을 제공합니다',
+    },
+    {
+      icon: 'monitoring',
+      iconColor: 'text-accent',
+      bgColor: 'bg-accent/20',
+      title: '평균 7일 빠른 출고',
+      description: '빠른 출고로 원하는 차량을 즉시 만나보세요',
+    },
+    {
+      icon: 'payments',
+      iconColor: 'text-purple-400',
+      bgColor: 'bg-purple-500/20',
+      title: '전문 딜러 무료 상담',
+      description: '경험 풍부한 전문가가 1:1 맞춤 상담을 제공합니다',
+    },
+  ];
+
   return (
-    <section className="px-4 pt-2 pb-8">
+    <section className="px-4 pt-4 pb-20 md:pt-8 md:pb-[120px] bg-[#0B1120]">
       {/* 배경 비디오 */}
       <div className="max-w-7xl mx-auto">
         <div className="relative h-[225px] md:h-[600px] lg:h-[700px] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden mb-8 md:mb-12">
@@ -15,27 +39,6 @@ const HeroSection = ({ onConsultClick }) => {
             playsInline
             controlsList="nodownload"
           />
-
-          {/* 그라데이션 오버레이 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent"></div>
-        </div>
-      </div>
-
-      {/* 신뢰 지표 */}
-      <div className="max-w-7xl mx-auto">
-        <div className="mt-8 px-4 grid grid-cols-3 gap-2 md:gap-6">
-          <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] px-3 py-4 md:p-8 text-center hover:shadow-glass-heavy transition-shadow duration-300">
-            <div className="text-lg md:text-3xl font-bold text-charcoal">10,000+</div>
-            <p className="text-[10px] md:text-sm text-charcoal/60 mt-1 md:mt-2 whitespace-nowrap">누적 견적</p>
-          </div>
-          <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] px-3 py-4 md:p-8 text-center hover:shadow-glass-heavy transition-shadow duration-300">
-            <div className="text-lg md:text-3xl font-bold text-charcoal">7일</div>
-            <p className="text-[10px] md:text-sm text-charcoal/60 mt-1 md:mt-2 whitespace-nowrap">평균 출고일</p>
-          </div>
-          <div className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] px-3 py-4 md:p-8 text-center hover:shadow-glass-heavy transition-shadow duration-300">
-            <div className="text-lg md:text-3xl font-bold text-charcoal">20+</div>
-            <p className="text-[10px] md:text-sm text-charcoal/60 mt-1 md:mt-2 whitespace-nowrap">제휴 금융사</p>
-          </div>
         </div>
       </div>
 
@@ -46,34 +49,49 @@ const HeroSection = ({ onConsultClick }) => {
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카 전속세일즈파트너
           </h5>
-          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal mb-6">
+          <h3 className="text-[22px] md:text-[50px] lg:text-[56px] font-bold text-white mb-6">
             앗차가와 최저가 신차 견적
           </h3>
         </div>
-      </div>
 
-      {/* CTA 버튼 */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-center">
+        {/* 서비스 카드 그리드 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="glass-dark p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] flex items-start gap-4 hover:scale-105 transition-transform duration-300"
+            >
+              {/* 아이콘 */}
+              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl ${service.bgColor} flex items-center justify-center flex-shrink-0`}>
+                <span className={`material-symbols-outlined ${service.iconColor} text-2xl md:text-3xl`}>
+                  {service.icon}
+                </span>
+              </div>
+
+              {/* 텍스트 */}
+              <div className="flex-1">
+                <h4 className="font-bold text-white mb-1 text-base md:text-lg">
+                  {service.title}
+                </h4>
+                <p className="text-xs md:text-sm text-white/60 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA 버튼 */}
+        <div className="text-center md:mt-16">
           <button
             onClick={onConsultClick}
-            className="px-8 py-3 md:py-4 bg-primary hover:bg-blue-600 text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+            className="w-full md:w-[320px] bg-primary text-white font-semibold py-4 px-8 rounded-full hover:bg-primary-active transition-all duration-300 shadow-lg hover:shadow-xl text-base md:text-lg"
           >
             무료 견적 받기
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
           </button>
         </div>
       </div>
+
     </section>
   );
 };

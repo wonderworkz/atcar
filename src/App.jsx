@@ -9,8 +9,8 @@ import HamburgerMenu from './components/layout/HamburgerMenu';
 // Section Components
 import HeroSection from './components/sections/HeroSection';
 import AppPromoSection from './components/sections/AppPromoSection';
-import CarReviewSection from './components/sections/CarReviewSection';
 import ServiceCardsSection from './components/sections/ServiceCardsSection';
+import CarReviewSection from './components/sections/CarReviewSection';
 import MaintenanceSection from './components/sections/MaintenanceSection';
 import TrustSection from './components/sections/TrustSection';
 import ReviewsSection from './components/sections/ReviewsSection';
@@ -55,7 +55,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-mesh pb-20 md:pb-24">
+    <div className="min-h-screen bg-[#0B1120]">
       {/* Header */}
       <Header onMenuClick={() => setIsMenuOpen(true)} />
 
@@ -89,6 +89,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: '-100px' }}
+          className="hidden"
         >
           <ServiceCardsSection />
         </motion.div>

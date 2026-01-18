@@ -25,14 +25,14 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="px-4 py-12 md:py-16">
+    <section className="px-4 py-20 md:py-[120px] bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
         <div className="text-center mb-8 md:mb-12">
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             골프장부터 무료 렌트권까지
           </h5>
-          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal">
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#1E293B]">
             놀라운 멤버십 혜택까지
           </h3>
         </div>
@@ -55,11 +55,11 @@ const TrustSection = () => {
 
               {/* 텍스트 영역 */}
               <div className="p-3 md:p-6">
-                <h4 className="text-sm md:text-xl font-bold text-charcoal mb-1 md:mb-2">
+                <h4 className="text-sm md:text-xl font-bold text-[#1E293B] mb-1 md:mb-2">
                   {benefit.title}
                 </h4>
                 {benefit.content.map((line, idx) => (
-                  <p key={idx} className="text-[10px] md:text-base text-charcoal/60 leading-tight md:leading-normal">
+                  <p key={idx} className="text-[10px] md:text-base text-[#1E293B]/60 leading-tight md:leading-normal">
                     {line}
                   </p>
                 ))}

@@ -8,7 +8,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
 
   // 타이핑 효과를 위한 state
   const [typedText, setTypedText] = useState('');
-  const fullText = '최저가 견적 받으세요!';
+  const fullText = '⚡️지금 최저가 견적 받으세요!';
 
   useEffect(() => {
     let currentIndex = 0;
@@ -127,26 +127,11 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
           {/* 닫힌 상태 콘텐츠 */}
           {!isOpen && (
             <div className="flex flex-col items-center gap-4">
-              {/* 중앙 정렬 타이틀 & 화살표 */}
-              <div className="flex items-center justify-center gap-2">
+              {/* 중앙 정렬 타이틀 */}
+              <div className="flex items-center justify-center">
                 <p className="text-[20px] font-bold tracking-tighter text-white">
-                  지금 최저가 견적받기
+                  {typedText}
                 </p>
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="flex h-[24px] w-[24px] items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="10"
-                    viewBox="0 0 18 10"
-                    fill="none"
-                    className="rotate-180"
-                  >
-                    <path d="M17 1L9 9L1 1" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
               </div>
 
               {/* 버튼 2개 */}
@@ -327,7 +312,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
           {!isOpen && (
             <>
               <div className="flex items-center justify-center mb-4">
-                <p className="text-base text-primary font-bold text-center">
+                <p className="text-base text-white font-bold text-center">
                   {typedText}
                 </p>
               </div>

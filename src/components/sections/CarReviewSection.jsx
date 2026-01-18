@@ -17,14 +17,14 @@ const CarReviewSection = () => {
   ];
 
   return (
-    <section className="px-4 py-12 md:py-16">
+    <section className="px-4 py-20 md:py-[120px] bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
         <div className="text-center mb-8 md:mb-12">
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             차종을 못 정하셨다면?
           </h5>
-          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-charcoal">
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#1E293B]">
             앗차가와가 추천하는 신차!
           </h3>
         </div>
@@ -56,7 +56,7 @@ const CarReviewSection = () => {
                     <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
                       {review.tag}
                     </span>
-                    <h4 className="text-2xl font-bold text-charcoal">
+                    <h4 className="text-2xl font-bold text-[#1E293B]">
                       {review.title}
                     </h4>
                   </div>

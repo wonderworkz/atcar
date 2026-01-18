@@ -13,7 +13,7 @@ const ServiceCardsSection = () => {
       icon: 'monitoring',
       iconColor: 'text-accent',
       bgColor: 'bg-accent/20',
-      title: '7일 이내 출고 보장',
+      title: '평균 7일 빠른 출고',
       description: '빠른 출고로 원하는 차량을 즉시 만나보세요',
     },
     {
@@ -26,7 +26,7 @@ const ServiceCardsSection = () => {
   ];
 
   return (
-    <section id="services" className="px-4 py-12 md:py-16 bg-[#0B1120]">
+    <section id="services" className="px-4 py-20 md:py-[120px] bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
         <div className="text-center mb-8 md:mb-12">

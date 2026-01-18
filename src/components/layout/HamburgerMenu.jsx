@@ -38,12 +38,12 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
 
       {/* Menu Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[60] transform transition-transform duration-300 overflow-y-auto ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-[#0B1120] shadow-2xl z-[60] transform transition-transform duration-300 overflow-y-auto ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-white px-6 py-4 flex items-center justify-between">
+        <div className="sticky top-0 bg-[#0B1120] px-6 py-4 flex items-center justify-between">
           <img
             src="/atcar/images/atcar_logo.png"
             alt="앗차가와"
@@ -51,7 +51,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
           />
           <button
             onClick={onClose}
-            className="p-2 text-gray-60 hover:text-gray-90 hover:bg-gray-10 rounded-full transition-colors"
+            className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
             aria-label="메뉴 닫기"
           >
             <svg
@@ -72,9 +72,6 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
         <div className="px-6 py-6">
           {menuSections.map((section, sectionIndex) => (
             <div key={sectionIndex} className={sectionIndex > 0 ? 'mt-8' : ''}>
-              <h3 className="text-sm font-semibold text-gray-60 uppercase tracking-wider mb-4">
-                {section.title}
-              </h3>
               <nav className="space-y-1">
                 {section.items.map((item, itemIndex) => (
                   <a
@@ -82,7 +79,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
                     href={item.path}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
-                    className="block px-4 py-3 text-gray-90 hover:bg-primary-10 hover:text-primary rounded-lg transition-colors duration-200 font-medium"
+                    className="block px-4 py-3 text-white hover:bg-white/10 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                     onClick={!item.external ? onClose : undefined}
                   >
                     <span>{item.label}</span>
@@ -93,7 +90,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
           ))}
 
           {/* Additional Links */}
-          <div className="mt-8">
+          <div className="mt-8 hidden">
             <a
               href="#"
               className="block px-4 py-3 text-center text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 font-semibold"
