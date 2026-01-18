@@ -49,15 +49,15 @@ const CarReviewSection = () => {
               </div>
 
               {/* 텍스트 & 이미지 영역 */}
-              <div className="p-8">
+              <div className="p-5 md:p-8">
                 <div className="flex items-center justify-between gap-4">
                   {/* 좌측: 태그 & 타이틀 */}
                   <div className="flex-1 min-w-0">
                     <span className="inline-block text-xs md:text-sm text-primary font-medium mb-1 md:mb-2">
                       {review.tag}
                     </span>
-                    <h4 className="text-2xl font-bold text-[#1E293B]">
-                      {review.title}
+                    <h4 className="text-[20px] font-bold text-[#1E293B]">
+                      {review.title} <span className="hidden md:inline">지금 보러가기</span>
                     </h4>
                   </div>
 

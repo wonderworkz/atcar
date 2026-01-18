@@ -57,7 +57,7 @@ const MaintenanceSection = () => {
               className="glass-dark rounded-[1rem] md:rounded-[2rem] overflow-hidden hover:scale-105 transition-transform duration-300"
             >
               {/* 이미지 영역 */}
-              <div className="aspect-[7/3] overflow-hidden">
+              <div className="aspect-[7/3] md:aspect-[7/3.9] overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}

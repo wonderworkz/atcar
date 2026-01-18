@@ -5,17 +5,17 @@ const TrustSection = () => {
     {
       title: '롯데렌터카',
       image: 'http://cheon0125.mycafe24.com/wp-content/uploads/2025/05/Rectangle-4.png',
-      content: ['무료이용권 전국', '무료이용권 2매'],
+      content: ['전국에서 사용 가능한', '무료이용권 2매'],
     },
     {
       title: '롯데스카이힐',
       image: 'http://cheon0125.mycafe24.com/wp-content/uploads/2025/05/롯데스카이힐.jpg',
-      content: ['그린피 할인 주중 30%', '주말 20%(상시)'],
+      content: ['그린피 할인 주중 30%', '주말 20% (상시)'],
     },
     {
       title: '롯데리조트',
       image: 'http://cheon0125.mycafe24.com/wp-content/uploads/2025/05/Rectangle-6.png',
-      content: ['객실 할인 주중 20%', '주말 15%(상시)'],
+      content: ['객실 할인 주중 20%', '주말 15% (상시)'],
     },
     {
       title: '롯데홈쇼핑',
@@ -55,11 +55,11 @@ const TrustSection = () => {
 
               {/* 텍스트 영역 */}
               <div className="p-3 md:p-6">
-                <h4 className="text-sm md:text-xl font-bold text-[#1E293B] mb-1 md:mb-2">
+                <h4 className="text-[16px] md:text-xl font-bold text-[#1E293B] mb-1 md:mb-2">
                   {benefit.title}
                 </h4>
                 {benefit.content.map((line, idx) => (
-                  <p key={idx} className="text-[10px] md:text-base text-[#1E293B]/60 leading-tight md:leading-normal">
+                  <p key={idx} className="text-[12px] md:text-base text-[#1E293B]/60 leading-tight md:leading-normal">
                     {line}
                   </p>
                 ))}

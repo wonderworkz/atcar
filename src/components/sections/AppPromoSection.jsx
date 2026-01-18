@@ -73,7 +73,7 @@ const AppPromoSection = ({ onConsultClick }) => {
               </div>
 
               {/* 차량 이미지 */}
-              <div className="mt-12 mb-4">
+              <div className="mt-6 mb-4">
                 <img
                   src={model.image}
                   alt={model.name}
@@ -83,15 +83,19 @@ const AppPromoSection = ({ onConsultClick }) => {
               </div>
 
               {/* 차량 정보 */}
-              <h6 className="text-base md:text-lg font-bold text-white mb-2">
-                {model.name}
-              </h6>
-              <p className="text-sm text-white/40 mb-3">
-                {model.trim}
-              </p>
-              <h6 className="text-xl md:text-2xl font-bold text-primary mb-4">
-                {model.price}
-              </h6>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex-1 min-w-0 pr-3">
+                  <h6 className="text-[14.4px] md:text-[16.2px] font-bold text-white mb-1">
+                    {model.name}
+                  </h6>
+                  <p className="text-sm text-white/40">
+                    {model.trim}
+                  </p>
+                </div>
+                <h6 className="text-xl md:text-2xl font-bold text-primary shrink-0">
+                  {model.price}
+                </h6>
+              </div>
 
               {/* 상담신청 버튼 */}
               <button
@@ -111,23 +115,23 @@ const AppPromoSection = ({ onConsultClick }) => {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
             </div>
 
-            <div className="relative z-10 flex-1 flex flex-col">
+            <div className="relative z-10 flex flex-col">
               {/* 텍스트 */}
-              <h4 className="text-xl md:text-2xl font-normal mb-2">
+              <h4 className="text-lg md:text-xl font-normal mb-1">
                 요즘 대세 <span className="font-black">하이브리드 기획전</span>
               </h4>
 
               {/* 서브 텍스트 */}
-              <p className="text-sm text-white mb-3">
+              <p className="text-xs text-white mb-2">
                 원하는 차종을 문의해보세요!
               </p>
 
               {/* 차량 이미지 */}
-              <div className="flex-1 flex items-center justify-center my-2 md:my-4">
+              <div className="flex items-center justify-center my-1 md:my-2">
                 <img
                   src="https://atcar.kr/wp-content/uploads/2025/05/코나.png"
                   alt="코나 하이브리드"
-                  className="w-full max-w-[357px] h-auto object-contain mx-auto"
+                  className="w-full max-w-[285px] h-auto object-contain mx-auto"
                   loading="lazy"
                 />
               </div>
@@ -135,7 +139,7 @@ const AppPromoSection = ({ onConsultClick }) => {
               {/* 상담신청 버튼 */}
               <button
                 onClick={onConsultClick}
-                className="w-full py-3 bg-white text-[#3B82F6] rounded-xl font-semibold hover:bg-white/90 transition-colors duration-300 mt-auto"
+                className="w-full py-3 bg-white text-[#3B82F6] rounded-xl font-semibold hover:bg-white/90 transition-colors duration-300 mt-2"
               >
                 상담신청
               </button>
