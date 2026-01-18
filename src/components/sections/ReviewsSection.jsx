@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 const ReviewsSection = () => {
+  const scrollContainerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   const reviews = [
     {
       name: '김*훈',
@@ -46,6 +51,40 @@ const ReviewsSection = () => {
     },
   ];
 
+  // 드래그 시작
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+    scrollContainerRef.current.style.cursor = 'grabbing';
+    scrollContainerRef.current.style.scrollSnapType = 'none';
+  };
+
+  // 드래그 중
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // 스크롤 속도 조절
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // 드래그 종료
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    scrollContainerRef.current.style.cursor = 'grab';
+    scrollContainerRef.current.style.scrollSnapType = 'x mandatory';
+  };
+
+  // 마우스가 컨테이너를 벗어날 때
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      scrollContainerRef.current.style.cursor = 'grab';
+      scrollContainerRef.current.style.scrollSnapType = 'x mandatory';
+    }
+  };
+
   const renderStars = (rating) => {
     return [...Array(5)].map((_, index) => (
       <svg
@@ -75,11 +114,18 @@ const ReviewsSection = () => {
         </div>
 
         {/* 후기 카드 가로 스크롤 */}
-        <div className="flex overflow-x-auto no-scrollbar gap-4 md:gap-6 px-6 pb-4">
+        <div
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 md:gap-6 px-6 pb-4 cursor-grab select-none"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+        >
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="glass-heavy-dark w-[280px] md:w-[420px] lg:w-[480px] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] flex flex-col gap-4 flex-shrink-0"
+              className="glass-heavy-dark w-[280px] md:w-[420px] lg:w-[480px] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] flex flex-col gap-4 flex-shrink-0 snap-center md:snap-start"
             >
               {/* 별점 */}
               <div className="flex items-center gap-1 text-accent">

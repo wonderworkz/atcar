@@ -1,124 +1,197 @@
-import React from 'react';
-import Button from '../ui/Button';
+import React, { useState } from 'react';
 
 const CTASection = ({ onConsultClick }) => {
-  const phoneNumber = '02-6356-0936';
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    carModel: '',
+    agreeAll: false,
+    agreePrivacy: false,
+    agreeThirdParty: false,
+    agreeMarketing: false,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleAgreeAll = (e) => {
+    const isChecked = e.target.checked;
+    setFormData(prev => ({
+      ...prev,
+      agreeAll: isChecked,
+      agreePrivacy: isChecked,
+      agreeThirdParty: isChecked,
+      agreeMarketing: isChecked,
+    }));
+  };
+
+  const isFormValid = formData.name && formData.phone && formData.agreePrivacy && formData.agreeThirdParty;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isFormValid) {
+      onConsultClick();
+    }
+  };
 
   return (
-    <section className="px-4 py-16 md:py-20">
+    <section className="px-4 py-12 md:py-16 bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
-        <div className="relative rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-primary via-accent to-primary text-white p-12 md:p-16">
-          {/* 배경 장식 */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
-          </div>
+        {/* 섹션 헤더 */}
+        <div className="text-center mb-8 md:mb-12">
+          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
+            내게 딱 맞는 차를 최저가로
+          </h5>
+          <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-white">
+            지금 무료 견적 받으세요
+          </h3>
+        </div>
 
-          <div className="relative z-10 text-center">
-            {/* 서브헤드라인 */}
-            <h5 className="text-sm md:text-base text-white font-semibold mb-2 md:mb-3 opacity-90">
-              전문가가 24시간 대기 중입니다
-            </h5>
-
-            {/* 헤드라인 */}
-            <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold mb-12">
-              지금 바로 무료 견적을 받아보세요
-            </h3>
-
-            {/* CTA 버튼 */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button
-                variant="secondary"
-                size="large"
-                onClick={onConsultClick}
-                className="bg-white text-primary hover:bg-white/90 shadow-xl"
-              >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-              </svg>
+        {/* 견적 신청 폼 */}
+        <div className="max-w-[900px] mx-auto px-6">
+          <div className="glass-heavy-dark rounded-[1.5rem] md:rounded-[2rem] px-6 py-6 md:px-[40px] md:py-[28px] hover:bg-white/10 transition-all duration-300">
+          <div className="flex items-center justify-center md:justify-start mb-4">
+            <p className="text-base md:text-[20px] font-bold tracking-tighter text-white">
               무료 상담 신청
-            </Button>
+            </p>
+          </div>
 
-              <a href={`tel:${phoneNumber.replace(/-/g, '')}`}>
-                <Button
-                  variant="ghost"
-                  size="large"
-                  className="bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm border-2 border-white"
-                >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                </svg>
-                  전화 상담 {phoneNumber}
-                </Button>
-              </a>
-            </div>
+          <div className="flex w-full flex-col gap-4">
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+              {/* 입력 필드 */}
+              <ul className="input-list flex flex-col md:flex-row gap-3 md:gap-[14px]">
+                <li className="flex flex-1 flex-col gap-1">
+                  <input
+                    className="h-[42px] rounded-[10px] border border-white/20 px-6 bg-white/5 text-base text-white placeholder:text-white/40"
+                    placeholder="이름을 입력하세요"
+                    type="text"
+                    value={formData.name}
+                    name="name"
+                    onChange={handleInputChange}
+                  />
+                </li>
+                <li className="flex flex-1 flex-col gap-1">
+                  <input
+                    className="h-[42px] rounded-[10px] border border-white/20 px-6 bg-white/5 text-base text-white placeholder:text-white/40"
+                    placeholder="휴대폰번호 (-제외)"
+                    type="tel"
+                    value={formData.phone}
+                    name="phone"
+                    onChange={handleInputChange}
+                  />
+                </li>
+                <li className="flex flex-1 flex-col gap-1">
+                  <input
+                    className="h-[42px] rounded-[10px] border border-white/20 px-6 bg-white/5 text-base text-white placeholder:text-white/40"
+                    placeholder="차종을 입력하세요"
+                    type="text"
+                    value={formData.carModel}
+                    name="carModel"
+                    onChange={handleInputChange}
+                  />
+                </li>
+              </ul>
 
-            {/* 카카오톡 문의 */}
-            <div className="flex items-center justify-center gap-2 text-sm opacity-90">
-              <span>카카오톡으로도 간편하게 문의하세요</span>
-              <a
-                href={import.meta.env.VITE_KAKAO_TALK_URL || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-4 py-2 bg-yellow-400 text-charcoal rounded-xl hover:bg-yellow-300 transition-colors font-semibold"
+              {/* 동의 체크박스 */}
+              <ul className="check-list flex gap-2 flex-wrap">
+                <li>
+                  <label className="flex items-center gap-1 cursor-pointer">
+                    <input
+                      className="w-[18px] h-[18px] rounded accent-primary cursor-pointer appearance-none border border-white/20 bg-white/5 checked:bg-primary checked:border-primary"
+                      type="checkbox"
+                      name="agreeAll"
+                      checked={formData.agreeAll}
+                      onChange={handleAgreeAll}
+                      style={{
+                        backgroundImage: formData.agreeAll ? 'url("data:image/svg+xml,%3csvg viewBox=\'0 0 16 16\' fill=\'white\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z\'/%3e%3c/svg%3e")' : 'none',
+                        backgroundSize: '100% 100%',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                      }}
+                    />
+                    <p className="text-sm leading-5 text-white/80 text-nowrap">전체 동의</p>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center gap-1 cursor-pointer">
+                    <input
+                      className="w-[18px] h-[18px] rounded accent-primary cursor-pointer appearance-none border border-white/20 bg-white/5 checked:bg-primary checked:border-primary"
+                      type="checkbox"
+                      name="agreePrivacy"
+                      checked={formData.agreePrivacy}
+                      onChange={handleInputChange}
+                      style={{
+                        backgroundImage: formData.agreePrivacy ? 'url("data:image/svg+xml,%3csvg viewBox=\'0 0 16 16\' fill=\'white\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z\'/%3e%3c/svg%3e")' : 'none',
+                        backgroundSize: '100% 100%',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                      }}
+                    />
+                    <p className="text-sm leading-5 text-white/80 text-nowrap">
+                      (필수) 개인정보 수집 및 활용동의 <span className="text-primary">[보기]</span>
+                    </p>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center gap-1 cursor-pointer">
+                    <input
+                      className="w-[18px] h-[18px] rounded accent-primary cursor-pointer appearance-none border border-white/20 bg-white/5 checked:bg-primary checked:border-primary"
+                      type="checkbox"
+                      name="agreeThirdParty"
+                      checked={formData.agreeThirdParty}
+                      onChange={handleInputChange}
+                      style={{
+                        backgroundImage: formData.agreeThirdParty ? 'url("data:image/svg+xml,%3csvg viewBox=\'0 0 16 16\' fill=\'white\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z\'/%3e%3c/svg%3e")' : 'none',
+                        backgroundSize: '100% 100%',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                      }}
+                    />
+                    <p className="text-sm leading-5 text-white/80 text-nowrap">
+                      (필수) 개인정보 제3자 제공 동의 <span className="text-primary">[보기]</span>
+                    </p>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center gap-1 cursor-pointer">
+                    <input
+                      className="w-[18px] h-[18px] rounded accent-primary cursor-pointer appearance-none border border-white/20 bg-white/5 checked:bg-primary checked:border-primary"
+                      type="checkbox"
+                      name="agreeMarketing"
+                      checked={formData.agreeMarketing}
+                      onChange={handleInputChange}
+                      style={{
+                        backgroundImage: formData.agreeMarketing ? 'url("data:image/svg+xml,%3csvg viewBox=\'0 0 16 16\' fill=\'white\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z\'/%3e%3c/svg%3e")' : 'none',
+                        backgroundSize: '100% 100%',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                      }}
+                    />
+                    <p className="text-sm leading-5 text-white/80 text-nowrap">
+                      (선택) 마케팅 활용동의 <span className="text-primary">[보기]</span>
+                    </p>
+                  </label>
+                </li>
+              </ul>
+            </form>
+
+            {/* 제출 버튼 */}
+            <div className="flex">
+              <button
+                disabled={!isFormValid}
+                onClick={handleSubmit}
+                className="submit flex h-[52px] w-full items-center justify-center rounded-xl bg-primary text-sm font-bold tracking-tighter text-white hover:bg-primary/90 active:bg-blue-700 disabled:bg-[#ECECEC] disabled:text-[#9C9CAC] disabled:cursor-not-allowed transition-colors"
               >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 01-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z"/>
-              </svg>
-                카카오톡 문의
-              </a>
-            </div>
-
-            {/* 앱 다운로드 */}
-            <div className="mt-12 pt-12 border-t border-white/20">
-              <p className="text-sm mb-6 opacity-90">
-                앱을 다운로드하고 더욱 편리하게 이용하세요
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-colors border border-white/30"
-                >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                <div className="text-left">
-                  <div className="text-xs opacity-75">Download on the</div>
-                  <div className="text-sm font-semibold">App Store</div>
-                </div>
-              </a>
-
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-colors border border-white/30"
-                >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                </svg>
-                <div className="text-left">
-                  <div className="text-xs opacity-75">GET IT ON</div>
-                    <div className="text-sm font-semibold">Google Play</div>
-                  </div>
-                </a>
-              </div>
+                무료 견적 받아보기
+              </button>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

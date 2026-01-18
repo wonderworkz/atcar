@@ -11,6 +11,7 @@ import HeroSection from './components/sections/HeroSection';
 import AppPromoSection from './components/sections/AppPromoSection';
 import CarReviewSection from './components/sections/CarReviewSection';
 import ServiceCardsSection from './components/sections/ServiceCardsSection';
+import MaintenanceSection from './components/sections/MaintenanceSection';
 import TrustSection from './components/sections/TrustSection';
 import ReviewsSection from './components/sections/ReviewsSection';
 import FAQSection from './components/sections/FAQSection';
@@ -82,6 +83,16 @@ function App() {
           <AppPromoSection onConsultClick={openConsultModal} />
         </motion.div>
 
+        {/* Service Cards Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <ServiceCardsSection />
+        </motion.div>
+
         {/* Car Review Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -92,14 +103,14 @@ function App() {
           <CarReviewSection />
         </motion.div>
 
-        {/* Service Cards Section */}
+        {/* Maintenance Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          <ServiceCardsSection />
+          <MaintenanceSection />
         </motion.div>
 
         {/* Trust Section */}
