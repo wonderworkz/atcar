@@ -6,8 +6,8 @@ const HeroSection = ({ onConsultClick }) => {
       icon: 'verified_user',
       iconColor: 'text-primary',
       bgColor: 'bg-primary/20',
-      title: '보험료·세금 부담 없는 견적',
-      description: '복잡한 계산 없이 명확하고 투명한 견적을 제공합니다',
+      title: '앗차가와 전용 특가',
+      description: '복잡함 Zero, 투명한 견적을 제공합니다',
     },
     {
       icon: 'monitoring',
@@ -20,8 +20,8 @@ const HeroSection = ({ onConsultClick }) => {
       icon: 'payments',
       iconColor: 'text-purple-400',
       bgColor: 'bg-purple-500/20',
-      title: '전문 딜러 무료 상담',
-      description: '경험 풍부한 전문가가 1:1 맞춤 상담을 제공합니다',
+      title: '앗차가와 채널 홍보',
+      description: '실차주 인터뷰를 통한 업장 홍보까지',
     },
   ];
 
@@ -46,11 +46,11 @@ const HeroSection = ({ onConsultClick }) => {
       <div className="max-w-7xl mx-auto px-4">
         {/* 섹션 헤더 */}
         <div className="text-center mt-8 mb-8 md:mb-12">
-          <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
+          <h5 className="text-sm md:text-[19px] text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카 전속세일즈파트너
           </h5>
-          <h3 className="text-[22px] md:text-[50px] lg:text-[56px] font-bold text-white mb-6">
-            앗차가와 최저가 신차 견적
+          <h3 className="text-[30px] md:text-[50px] lg:text-[56px] font-bold text-white mb-6">
+            최저가 신차견적, 앗차가와
           </h3>
         </div>
 
