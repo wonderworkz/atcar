@@ -79,7 +79,7 @@ const AppPromoSection = ({ onConsultClick }) => {
 
               {/* 잔여 대수 태그 */}
               <div className="absolute top-4 md:top-6 right-4 md:right-6">
-                <div className="bg-primary/70 backdrop-blur-md text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                <div className="bg-primary/70 backdrop-blur-md text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-widest animate-blink">
                   잔여 {model.remaining}대
                 </div>
               </div>

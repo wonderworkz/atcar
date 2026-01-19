@@ -57,6 +57,15 @@ export default {
       backdropBlur: {
         xs: '2px',
       },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '0.7' },
+          '50%': { opacity: '0.2' },
+        },
+      },
+      animation: {
+        blink: 'blink 1.2s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
