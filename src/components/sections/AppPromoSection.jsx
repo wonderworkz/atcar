@@ -72,6 +72,15 @@ const AppPromoSection = ({ onConsultClick }) => {
                 </span>
               </div>
 
+              {/* 잔여 대수 태그 - 첫 번째 카드에만 표시 */}
+              {index === 0 && (
+                <div className="absolute top-4 md:top-6 right-4 md:right-6">
+                  <div className="bg-primary/70 backdrop-blur-md text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                    잔여 29대
+                  </div>
+                </div>
+              )}
+
               {/* 차량 이미지 */}
               <div className="mt-6 mb-4">
                 <img
