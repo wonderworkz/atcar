@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const MaintenanceSection = () => {
   const services = [
@@ -40,21 +41,31 @@ const MaintenanceSection = () => {
     <section className="px-4 py-20 md:py-[120px] bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-8 md:mb-12">
+        <motion.div
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카 전문 관리 서비스
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-white">
             관리까지 알아서 척척
           </h3>
-        </div>
+        </motion.div>
 
         {/* 서비스 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="glass-dark rounded-[1rem] md:rounded-[2rem] overflow-hidden hover:scale-105 transition-transform duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 이미지 영역 */}
               <div className="aspect-[7/3] md:aspect-[7/3.9] overflow-hidden">
@@ -87,7 +98,7 @@ const MaintenanceSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

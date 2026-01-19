@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const TrustSection = () => {
   const benefits = [
@@ -28,21 +29,31 @@ const TrustSection = () => {
     <section className="px-4 py-20 md:py-[120px] bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-8 md:mb-12">
+        <motion.div
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             골프장부터 무료 렌트권까지
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#1E293B]">
             놀라운 멤버십 혜택까지
           </h3>
-        </div>
+        </motion.div>
 
         {/* 멤버십 혜택 카드 그리드 */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {benefits.map((benefit, index) => (
-            <div
+            <motion.div
               key={index}
               className="glass-heavy rounded-[1rem] md:rounded-[2rem] overflow-hidden hover:scale-105 transition-transform duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 이미지 영역 */}
               <div className="aspect-[4/3] overflow-hidden">
@@ -64,7 +75,7 @@ const TrustSection = () => {
                   </p>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

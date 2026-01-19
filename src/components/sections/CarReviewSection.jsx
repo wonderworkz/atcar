@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const CarReviewSection = () => {
   const reviews = [
@@ -20,21 +21,31 @@ const CarReviewSection = () => {
     <section className="px-4 py-20 md:py-[120px] bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-8 md:mb-12">
+        <motion.div
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             차종을 못 정하셨다면?
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#1E293B]">
             앗차가와가 추천하는 신차!
           </h3>
-        </div>
+        </motion.div>
 
         {/* 리뷰 카드 그리드 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {reviews.map((review, index) => (
-            <div
+            <motion.div
               key={index}
               className="glass-heavy rounded-[1.5rem] md:rounded-[2rem] overflow-hidden hover:shadow-glass-heavy transition-shadow duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               {/* 비디오 영역 */}
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
@@ -72,7 +83,7 @@ const CarReviewSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

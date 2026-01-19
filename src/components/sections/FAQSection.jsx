@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -49,21 +50,31 @@ const FAQSection = () => {
     <section className="px-4 py-20 md:py-[120px] bg-[#F8FAFC]">
       <div className="max-w-4xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-8 md:mb-12">
+        <motion.div
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             궁금하신 내용을 빠르게 확인해보세요
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#1E293B]">
             자주 묻는 질문
           </h3>
-        </div>
+        </motion.div>
 
         {/* FAQ 아코디언 */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
               className="glass-heavy rounded-3xl hover:shadow-glass-heavy transition-shadow duration-300 overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 질문 */}
               <button
@@ -100,7 +111,7 @@ const FAQSection = () => {
                   {faq.answer}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

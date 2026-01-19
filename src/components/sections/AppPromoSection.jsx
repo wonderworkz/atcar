@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const AppPromoSection = ({ onConsultClick }) => {
   const bestModels = [
@@ -9,6 +10,7 @@ const AppPromoSection = ({ onConsultClick }) => {
       name: '기아 카니발 하이브리드 9인승',
       trim: '1.6 프레스티지 2WD',
       price: '월 29만원~',
+      remaining: 29,
     },
     {
       rank: 2,
@@ -17,6 +19,7 @@ const AppPromoSection = ({ onConsultClick }) => {
       name: '현대 팰리세이드 하이브리드 9인승',
       trim: '2.5T 익스클루시브 2WD',
       price: '월 37만원~',
+      remaining: 37,
     },
     {
       rank: 3,
@@ -25,6 +28,7 @@ const AppPromoSection = ({ onConsultClick }) => {
       name: '현대 그랜저 하이브리드 5인승',
       trim: '1.6T 프리미엄 2WD',
       price: '월 31만원~',
+      remaining: 42,
     },
     {
       rank: 4,
@@ -33,6 +37,7 @@ const AppPromoSection = ({ onConsultClick }) => {
       name: '르노 그랑콜레오스 5인승',
       trim: 'E-Tech iconic 2WD',
       price: '월 35만원~',
+      remaining: 25,
     },
     {
       rank: 5,
@@ -41,6 +46,7 @@ const AppPromoSection = ({ onConsultClick }) => {
       name: '기아 EV3 전기차 5인승',
       trim: '에어 스탠다드 2WD',
       price: '월 21만원~',
+      remaining: 48,
     },
   ];
 
@@ -48,22 +54,32 @@ const AppPromoSection = ({ onConsultClick }) => {
     <section className="px-4 py-20 md:py-[120px] bg-[#1E293B]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <div className="text-center mb-8 md:mb-12">
+        <motion.div
+          className="text-center mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카의 우수한 상품을 저렴하게!
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#FFFFFF]">
             즉시출고 인기모델 BEST 5
           </h3>
-        </div>
+        </motion.div>
 
         {/* 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {/* 카드 2-6 - 나머지 모델들 */}
           {bestModels.map((model, index) => (
-            <div
+            <motion.div
               key={index}
               className="glass-heavy-dark rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:bg-white/10 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 순위 뱃지 */}
               <div className="absolute top-4 md:top-6 left-4 md:left-6">
@@ -72,14 +88,12 @@ const AppPromoSection = ({ onConsultClick }) => {
                 </span>
               </div>
 
-              {/* 잔여 대수 태그 - 첫 번째 카드에만 표시 */}
-              {index === 0 && (
-                <div className="absolute top-4 md:top-6 right-4 md:right-6">
-                  <div className="bg-primary/70 backdrop-blur-md text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                    잔여 29대
-                  </div>
+              {/* 잔여 대수 태그 */}
+              <div className="absolute top-4 md:top-6 right-4 md:right-6">
+                <div className="bg-primary/70 backdrop-blur-md text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                  잔여 {model.remaining}대
                 </div>
-              )}
+              </div>
 
               {/* 차량 이미지 */}
               <div className="mt-6 mb-4">
@@ -113,11 +127,17 @@ const AppPromoSection = ({ onConsultClick }) => {
               >
                 상담신청
               </button>
-            </div>
+            </motion.div>
           ))}
 
           {/* 카드 1 - 하이브리드 기획전 배너 */}
-          <div className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300 flex flex-col">
+          <motion.div
+            className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300 flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
             {/* 배경 장식 */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-48 h-48 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -153,7 +173,7 @@ const AppPromoSection = ({ onConsultClick }) => {
                 상담신청
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

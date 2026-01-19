@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const HeroSection = ({ onConsultClick }) => {
   const services = [
@@ -45,21 +46,31 @@ const HeroSection = ({ onConsultClick }) => {
       {/* 콘텐츠 영역 */}
       <div className="max-w-7xl mx-auto px-4">
         {/* 섹션 헤더 */}
-        <div className="text-center mt-8 mb-8 md:mb-12">
+        <motion.div
+          className="text-center mt-8 mb-8 md:mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h5 className="text-sm md:text-[19px] text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카 전속세일즈파트너
           </h5>
           <h3 className="text-[30px] md:text-[50px] lg:text-[56px] font-bold text-white mb-6">
             최저가 신차견적, 앗차가와
           </h3>
-        </div>
+        </motion.div>
 
         {/* 서비스 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="glass-dark p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] flex items-start gap-4 hover:scale-105 transition-transform duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 아이콘 */}
               <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl ${service.bgColor} flex items-center justify-center flex-shrink-0`}>
@@ -77,7 +88,7 @@ const HeroSection = ({ onConsultClick }) => {
                   {service.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
