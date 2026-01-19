@@ -59,14 +59,14 @@ export default {
       },
       keyframes: {
         blink: {
-          '0%': { opacity: '0.7' },
-          '25%': { opacity: '0' },
-          '75%': { opacity: '0' },
-          '100%': { opacity: '0.7' },
+          '0%': { opacity: '0.5' },
+          '20%': { opacity: '1' },
+          '80%': { opacity: '1' },
+          '100%': { opacity: '0.5' },
         },
       },
       animation: {
-        blink: 'blink 2s ease-in-out infinite',
+        blink: 'blink 2.5s ease-in-out infinite',
       },
     },
   },
