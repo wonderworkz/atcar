@@ -92,7 +92,7 @@ const AppPromoSection = ({ onConsultClick }) => {
                     {model.trim}
                   </p>
                 </div>
-                <h6 className="text-xl md:text-2xl font-bold text-primary shrink-0">
+                <h6 className="text-xl md:text-2xl font-bold shrink-0" style={{ color: '#9AF7DD' }}>
                   {model.price}
                 </h6>
               </div>

@@ -105,7 +105,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
       {/* PC 버전 */}
       <div className={`hidden md:block fixed bottom-[28px] xl:bottom-[20px] left-1/2 -translate-x-1/2 w-full z-50 transition-all ${isOpen ? 'max-w-[900px] px-6' : 'max-w-[520px]'}`}>
         <div
-          className={`overflow-hidden rounded-[40px] border border-white/20 bg-[rgba(11,17,32,0.80)] backdrop-blur-[50px] ${isOpen ? 'px-[40px] py-[28px]' : 'px-[30px] py-[24px]'}`}
+          className={`overflow-hidden rounded-[40px] border border-white/20 bg-[rgba(11,17,32,0.80)] backdrop-blur-[50px] ${isOpen ? 'px-[40px] py-[28px]' : 'px-[30px]'}`}
           style={{
             boxShadow: '0 0 24px rgba(0,0,0,0.20)'
           }}
@@ -126,16 +126,16 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
 
           {/* 닫힌 상태 콘텐츠 */}
           {!isOpen && (
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center">
               {/* 중앙 정렬 타이틀 */}
-              <div className="flex items-center justify-center">
-                <p className="text-[20px] font-bold tracking-tighter text-white">
+              <div className={`flex items-center justify-center w-full ${typedText ? 'pt-6 mb-4' : 'pt-6 pb-2'}`}>
+                <p className="text-[20px] font-bold tracking-tighter" style={{ color: '#9AF7DD' }}>
                   {typedText}
                 </p>
               </div>
 
               {/* 버튼 2개 */}
-              <div className="flex w-full items-center gap-3">
+              <div className="flex w-full items-center gap-3 pb-6">
                 <div className="flex min-w-0 flex-1 basis-0">
                   <button
                     className="flex h-[48px] items-center justify-center rounded-[48px] bg-[#fee500] px-4 active:bg-[#e0ca00] w-full"
@@ -302,7 +302,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
       <div className={`md:hidden fixed bottom-[16px] left-1/2 -translate-x-1/2 w-[calc(100%-21px)] z-50 ${isOpen ? 'open' : ''}`}>
         <div
           className={`overflow-hidden rounded-[40px] border border-white/20 bg-[rgba(11,17,32,0.80)] backdrop-blur-[50px] transition-all ${
-            isOpen ? 'p-6' : 'px-[16px] py-[16px]'
+            isOpen ? 'p-6' : 'px-[16px]'
           }`}
           style={{
             boxShadow: '0 0 24px rgba(0,0,0,0.20)'
@@ -311,14 +311,14 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
           {/* 닫힌 상태 */}
           {!isOpen && (
             <>
-              <div className="flex items-center justify-center mb-4">
-                <p className="text-base text-white font-bold text-center">
+              <div className={`flex items-center justify-center ${typedText ? 'pt-4 mb-4' : 'pt-4 pb-2'}`}>
+                <p className="text-base font-bold text-center" style={{ color: '#9AF7DD' }}>
                   {typedText}
                 </p>
               </div>
 
               {/* 버튼 영역 */}
-              <div className="flex items-center justify-between gap-2.5">
+              <div className="flex items-center justify-between gap-2.5 pb-4">
                 {/* 카카오톡 버튼 */}
                 <div className="flex min-w-0 flex-1 basis-0">
                   <a

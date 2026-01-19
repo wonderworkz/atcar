@@ -54,8 +54,8 @@ const TrustSection = () => {
               </div>
 
               {/* 텍스트 영역 */}
-              <div className="p-3 md:p-6">
-                <h4 className="text-[16px] md:text-xl font-bold text-[#1E293B] mb-1 md:mb-2">
+              <div className="p-4 md:p-6 text-center">
+                <h4 className="text-[16px] md:text-xl font-bold text-[#1E293B] mb-2 md:mb-2">
                   {benefit.title}
                 </h4>
                 {benefit.content.map((line, idx) => (
