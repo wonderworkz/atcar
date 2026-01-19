@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const AppPromoSection = ({ onConsultClick }) => {
   const bestModels = [
@@ -54,32 +53,22 @@ const AppPromoSection = ({ onConsultClick }) => {
     <section className="px-4 py-20 md:py-[120px] bg-[#1E293B]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <motion.div
-          className="text-center mb-8 md:mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-8 md:mb-12">
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             롯데렌터카의 우수한 상품을 저렴하게!
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-[#FFFFFF]">
             즉시출고 인기모델 BEST 5
           </h3>
-        </motion.div>
+        </div>
 
         {/* 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {/* 카드 2-6 - 나머지 모델들 */}
           {bestModels.map((model, index) => (
-            <motion.div
+            <div
               key={index}
               className="glass-heavy-dark rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 relative hover:bg-white/10 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 순위 뱃지 */}
               <div className="absolute top-4 md:top-6 left-4 md:left-6">
@@ -127,17 +116,11 @@ const AppPromoSection = ({ onConsultClick }) => {
               >
                 상담신청
               </button>
-            </motion.div>
+            </div>
           ))}
 
           {/* 카드 1 - 하이브리드 기획전 배너 */}
-          <motion.div
-            className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300 flex flex-col"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
+          <div className="relative rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden bg-gradient-to-br from-primary via-primary-active to-accent text-white hover:shadow-glass-heavy transition-shadow duration-300 flex flex-col">
             {/* 배경 장식 */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-48 h-48 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -173,7 +156,7 @@ const AppPromoSection = ({ onConsultClick }) => {
                 상담신청
               </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

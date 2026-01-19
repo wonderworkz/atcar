@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 const ReviewsSection = () => {
   const scrollContainerRef = useRef(null);
@@ -105,20 +104,14 @@ const ReviewsSection = () => {
     <section className="px-4 py-20 md:py-[120px] bg-[#0B1120]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
-        <motion.div
-          className="text-center mb-8 md:mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-8 md:mb-12">
           <h5 className="text-sm md:text-base text-primary font-semibold mb-2 md:mb-3">
             앗차가와를 선택하는 이유
           </h5>
           <h3 className="text-[30px] md:text-3xl lg:text-4xl font-bold text-white">
             실제 후기를 만나보세요
           </h3>
-        </motion.div>
+        </div>
 
         {/* 후기 카드 가로 스크롤 */}
         <div
@@ -130,13 +123,9 @@ const ReviewsSection = () => {
           onMouseLeave={handleMouseLeave}
         >
           {reviews.map((review, index) => (
-            <motion.div
+            <div
               key={index}
               className="glass-heavy-dark w-[280px] md:w-[420px] lg:w-[480px] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] flex flex-col gap-4 flex-shrink-0 snap-center md:snap-start"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* 별점 */}
               <div className="flex items-center gap-1 text-accent">
@@ -160,7 +149,7 @@ const ReviewsSection = () => {
                   <span className="text-xs text-white/60">{review.date}</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
