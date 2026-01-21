@@ -47,7 +47,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
           <img
             src="/atcar/images/atcar_logo.png"
             alt="앗차가와"
-            className="h-20"
+            className="h-10"
           />
           <button
             onClick={onClose}
