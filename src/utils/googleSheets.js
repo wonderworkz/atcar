@@ -21,6 +21,8 @@ export const submitToGoogleSheets = async (formData, source = 'unknown') => {
   try {
     const payload = {
       ...formData,
+      // 전화번호 앞에 ' 추가하여 스프레드시트에서 문자열로 인식되도록 처리
+      phone: formData.phone ? "'" + formData.phone : '',
       submittedAt: new Date().toISOString(),
     };
 
