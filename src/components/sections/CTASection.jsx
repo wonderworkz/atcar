@@ -11,12 +11,33 @@ const CTASection = ({ onConsultClick }) => {
     agreeMarketing: false,
   });
 
+  // 전화번호 포맷팅 함수 (010-1234-5678 형식)
+  const formatPhoneNumber = (value) => {
+    const numbers = value.replace(/[^0-9]/g, '');
+    if (numbers.length <= 3) {
+      return numbers;
+    } else if (numbers.length <= 7) {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3)}`;
+    } else {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3, 7)}-${numbers.slice(7, 11)}`;
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+
+    if (name === 'phone') {
+      const formattedPhone = formatPhoneNumber(value);
+      setFormData(prev => ({
+        ...prev,
+        phone: formattedPhone
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      }));
+    }
   };
 
   const handleAgreeAll = (e) => {
@@ -34,8 +55,13 @@ const CTASection = ({ onConsultClick }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isFormValid) {
-      onConsultClick();
+    if (isFormValid && onConsultClick) {
+      // DB로 전송 시 하이픈 제거
+      const submitData = {
+        ...formData,
+        phone: formData.phone.replace(/-/g, '')
+      };
+      onConsultClick(submitData, 'cta_section');
     }
   };
 
