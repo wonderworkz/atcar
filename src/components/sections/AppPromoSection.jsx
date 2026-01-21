@@ -50,7 +50,7 @@ const AppPromoSection = ({ onConsultClick }) => {
   ];
 
   return (
-    <section className="px-4 py-20 md:py-[120px] bg-[#1E293B]">
+    <section id="popular-models" className="px-4 py-20 md:py-[120px] bg-[#1E293B]">
       <div className="max-w-7xl mx-auto">
         {/* 섹션 헤더 */}
         <div className="text-center mb-8 md:mb-12">

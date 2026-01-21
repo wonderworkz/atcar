@@ -15,12 +15,11 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
 
   const menuSections = [
     {
-      title: 'Car.e.m 바로가기',
+      title: '메뉴',
       items: [
-        { label: '렌트', path: 'https://www.carem.kr/estimate/intro/rent', external: true },
-        { label: '리스', path: 'https://www.carem.kr/estimate/intro/lease', external: true },
-        { label: '즉시출고', path: 'https://www.carem.kr/fastship/list', external: true },
-        { label: '중고리스/저신용', path: 'https://www.carem.kr/usedcar/certifyTrade/trade/list', external: true },
+        { label: '즉시출고', path: '#popular-models', external: false },
+        { label: '인기모델 추천', path: '#youtube-section', external: false },
+        { label: '상담신청', path: '#cta-section', external: false },
         { label: '유튜브', path: 'https://www.youtube.com/@atcar', external: true },
       ],
     },
@@ -80,7 +79,18 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
                     className="block px-4 py-3 text-white hover:bg-white/10 hover:text-white rounded-lg transition-colors duration-200 font-medium"
-                    onClick={!item.external ? onClose : undefined}
+                    onClick={(e) => {
+                      if (!item.external) {
+                        e.preventDefault();
+                        onClose();
+                        setTimeout(() => {
+                          const element = document.querySelector(item.path);
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 300);
+                      }
+                    }}
                   >
                     <span>{item.label}</span>
                   </a>
