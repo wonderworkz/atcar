@@ -82,11 +82,22 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
     }));
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
   const isFormValid = formData.name && formData.phone && formData.agreePrivacy && formData.agreeThirdParty;
 
-  const handleSubmit = () => {
-    if (isFormValid) {
-      onConsultClick(formData);
+  const handleSubmit = async () => {
+    if (!isFormValid || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      await onConsultClick(formData, 'floating_button');
+
+      // 성공 시 폼 초기화 및 닫기
+      alert('상담 신청이 완료되었습니다! 빠른 시일 내에 연락드리겠습니다.');
       setIsOpen(false);
       setFormData({
         name: '',
@@ -97,6 +108,11 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
         agreeThirdParty: false,
         agreeMarketing: false,
       });
+    } catch (error) {
+      setSubmitError('상담 신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+      console.error('Submit error:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -283,14 +299,19 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
                 </ul>
               </form>
 
+              {/* 에러 메시지 */}
+              {submitError && (
+                <p className="text-red-400 text-sm text-center">{submitError}</p>
+              )}
+
               {/* 하단 고정 버튼 */}
               <div className="flex">
                 <button
                   onClick={handleSubmit}
-                  disabled={!isFormValid}
+                  disabled={!isFormValid || isSubmitting}
                   className="submit flex h-[52px] w-full items-center justify-center rounded-full bg-c-primary text-sm font-bold tracking-tighter text-white active:bg-c-primary-active disabled:bg-[#ECECEC] disabled:text-[#9C9CAC]"
                 >
-                  무료 견적 받아보기
+                  {isSubmitting ? '처리 중...' : '무료 견적 받아보기'}
                 </button>
               </div>
             </div>
@@ -477,13 +498,18 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
                   </li>
                 </ul>
 
+                {/* 에러 메시지 */}
+                {submitError && (
+                  <p className="text-red-400 text-sm text-center">{submitError}</p>
+                )}
+
                 {/* 제출 버튼 */}
                 <button
                   onClick={handleSubmit}
-                  disabled={!isFormValid}
+                  disabled={!isFormValid || isSubmitting}
                   className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3B82F6] text-[14px] font-bold tracking-tighter text-white active:bg-[#2563EB] disabled:bg-[#ECECEC] disabled:text-[#9C9CAC]"
                 >
-                  무료 견적 받아보기
+                  {isSubmitting ? '처리 중...' : '무료 견적 받아보기'}
                 </button>
               </div>
             </>

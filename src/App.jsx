@@ -25,21 +25,19 @@ import Modal from './components/ui/Modal';
 import ConsultationForm from './components/forms/ConsultationForm';
 
 // Utils
-import { submitConsultation } from './utils/api';
+import { submitToGoogleSheets } from './utils/googleSheets';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFloatingOpen, setIsFloatingOpen] = useState(false);
 
-  const handleConsultSubmit = async (formData) => {
+  const handleConsultSubmit = async (formData, source = 'floating_button') => {
     try {
-      // API 호출 (실제 API 엔드포인트 설정 필요)
-      // await submitConsultation(formData);
-      console.log('Form submitted:', formData);
-
-      // 임시로 로컬 저장 (개발 중)
-      // 실제 서비스에서는 백엔드 API로 전송
+      // Google Sheets로 데이터 전송
+      const result = await submitToGoogleSheets(formData, source);
+      console.log('Form submitted to Google Sheets:', result);
+      return result;
     } catch (error) {
       console.error('Submission error:', error);
       throw error;
