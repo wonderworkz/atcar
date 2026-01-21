@@ -36,7 +36,7 @@ const Footer = () => {
             <img
               src="/atcar/images/atcar_logo.png"
               alt="앗차가와"
-              className="h-10 md:h-20"
+              className="h-5 md:h-10"
             />
           </div>
         </div>
