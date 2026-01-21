@@ -111,6 +111,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+  const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
   const isFormValid = formData.name && formData.phone && formData.agreePrivacy && formData.agreeThirdParty;
 
@@ -128,9 +129,8 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
       };
       await onConsultClick(submitData, 'floating_button');
 
-      // 성공 시 폼 초기화 및 닫기
-      alert('상담 신청이 완료되었습니다! 빠른 시일 내에 연락드리겠습니다.');
-      setIsOpen(false);
+      // 성공 시 성공 화면 표시
+      setIsSubmitSuccess(true);
       setFormData({
         name: '',
         phone: '',
@@ -158,13 +158,16 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
             boxShadow: '0 0 24px rgba(0,0,0,0.20)'
           }}
         >
-          {/* 열린 상태 헤더 */}
-          {isOpen && (
+          {/* 열린 상태 헤더 - 폼일 때만 표시 */}
+          {isOpen && !isSubmitSuccess && (
             <div className="flex items-center justify-between mb-4">
               <p className="text-[20px] font-bold tracking-tighter text-white">
                 무료 견적 신청
               </p>
-              <button onClick={() => setIsOpen(false)}>
+              <button onClick={() => {
+                setIsSubmitSuccess(false);
+                setIsOpen(false);
+              }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
                   <path d="M17 1L9 9L1 1" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -210,8 +213,31 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
             </div>
           )}
 
+          {/* 열린 상태 - 성공 화면 */}
+          {isOpen && isSubmitSuccess && (
+            <div className="flex w-full flex-col items-center gap-6 py-8">
+              <div className="text-center">
+                <p className="text-xl font-bold text-white mb-2">
+                  상담 신청이 완료되었습니다!
+                </p>
+                <p className="text-white/70">
+                  빠른 시일 내에 연락드리겠습니다.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setIsSubmitSuccess(false);
+                  setIsOpen(false);
+                }}
+                className="flex h-[52px] w-full items-center justify-center rounded-full bg-c-primary text-sm font-bold tracking-tighter text-white active:bg-c-primary-active"
+              >
+                닫기
+              </button>
+            </div>
+          )}
+
           {/* 열린 상태 폼 */}
-          {isOpen && (
+          {isOpen && !isSubmitSuccess && (
             <div className="flex w-full flex-col gap-4">
               <form className="flex flex-col gap-4">
                 {/* 입력 필드 - 가로 배치 */}
@@ -404,8 +430,31 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
             </>
           )}
 
+          {/* 열린 상태 - 성공 화면 */}
+          {isOpen && isSubmitSuccess && (
+            <div className="flex w-full flex-col items-center gap-6 py-6">
+              <div className="text-center">
+                <p className="text-lg font-bold text-white mb-2">
+                  상담 신청이 완료되었습니다!
+                </p>
+                <p className="text-white/70 text-sm">
+                  빠른 시일 내에 연락드리겠습니다.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setIsSubmitSuccess(false);
+                  setIsOpen(false);
+                }}
+                className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3B82F6] text-[14px] font-bold tracking-tighter text-white active:bg-[#2563EB]"
+              >
+                닫기
+              </button>
+            </div>
+          )}
+
           {/* 열린 상태 - 폼 */}
-          {isOpen && (
+          {isOpen && !isSubmitSuccess && (
             <>
               {/* 헤더 */}
               <div className="flex items-center justify-between mb-4">
