@@ -14,6 +14,18 @@ const CarReviewSection = () => {
       title: '카니발 리뷰',
       carImage: 'https://atcar.kr/wp-content/uploads/2025/05/카니발-1-2.png',
     },
+    {
+      videoId: 'nGXHUx25Szw',
+      tag: '그랜저 하이브리드',
+      title: '그랜저 리뷰',
+      carImage: '',
+    },
+    {
+      videoId: '-LSh_P5aT6c',
+      tag: '액티언 하이브리드',
+      title: '액티언 리뷰',
+      carImage: '',
+    },
   ];
 
   return (
@@ -61,15 +73,17 @@ const CarReviewSection = () => {
                     </h4>
                   </div>
 
-                  {/* 우측: 차량 이미지 (작게) */}
-                  <div className="flex-shrink-0 w-24 md:w-32 lg:w-40">
-                    <img
-                      src={review.carImage}
-                      alt={review.title}
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                    />
-                  </div>
+                  {/* 우측: 차량 이미지 (작게) - 이미지가 있을 때만 표시 */}
+                  {review.carImage && (
+                    <div className="flex-shrink-0 w-24 md:w-32 lg:w-40">
+                      <img
+                        src={review.carImage}
+                        alt={review.title}
+                        className="w-full h-auto object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
