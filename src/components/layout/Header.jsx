@@ -10,7 +10,7 @@ const Header = ({ onMenuClick }) => {
             <img
               src="/atcar/images/atcar_logo.png"
               alt="앗차가와"
-              className="h-8"
+              className="h-16"
             />
           </div>
 
