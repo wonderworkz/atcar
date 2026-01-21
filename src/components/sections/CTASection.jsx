@@ -11,9 +11,15 @@ const CTASection = ({ onConsultClick }) => {
     agreeMarketing: false,
   });
 
-  // 전화번호 포맷팅 함수 (010-1234-5678 형식)
+  // 전화번호 포맷팅 함수 (010으로 시작하는 경우에만 010-1234-5678 형식 적용)
   const formatPhoneNumber = (value) => {
     const numbers = value.replace(/[^0-9]/g, '');
+
+    // 010으로 시작하지 않으면 포맷팅 없이 숫자만 반환
+    if (!numbers.startsWith('010') && numbers.length >= 3) {
+      return numbers;
+    }
+
     if (numbers.length <= 3) {
       return numbers;
     } else if (numbers.length <= 7) {
