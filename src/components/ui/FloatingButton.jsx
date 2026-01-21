@@ -215,7 +215,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
 
           {/* 열린 상태 - 성공 화면 */}
           {isOpen && isSubmitSuccess && (
-            <div className="flex w-full flex-col items-center gap-6 py-8">
+            <div className="flex w-full flex-col items-center gap-4">
               <div className="text-center">
                 <p className="text-xl font-bold text-white mb-2">
                   상담 신청이 완료되었습니다!
@@ -432,7 +432,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
 
           {/* 열린 상태 - 성공 화면 */}
           {isOpen && isSubmitSuccess && (
-            <div className="flex w-full flex-col items-center gap-6 py-6">
+            <div className="flex w-full flex-col items-center gap-4">
               <div className="text-center">
                 <p className="text-lg font-bold text-white mb-2">
                   상담 신청이 완료되었습니다!
