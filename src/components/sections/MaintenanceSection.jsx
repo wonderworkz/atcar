@@ -3,7 +3,7 @@ import React from 'react';
 const MaintenanceSection = () => {
   const services = [
     {
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/방문정비.png',
+      image: '/images/방문정비.png',
       title: '방문 정비',
       description: '주기적인 방문 정비 및 소모품 교체',
       icon: 'build',
@@ -11,7 +11,7 @@ const MaintenanceSection = () => {
       bgColor: 'bg-primary/20',
     },
     {
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/사고정비.png',
+      image: '/images/사고정비.png',
       title: '사고 정비',
       description: '사고가 나도 차량 수리는 걱정 NO!',
       icon: 'car_crash',
@@ -19,7 +19,7 @@ const MaintenanceSection = () => {
       bgColor: 'bg-accent/20',
     },
     {
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/정비대차.png',
+      image: '/images/정비대차.png',
       title: '정비 대차',
       description: '정비를 받는 동안 단기 대차 지급',
       icon: 'swap_horiz',
@@ -27,7 +27,7 @@ const MaintenanceSection = () => {
       bgColor: 'bg-purple-500/20',
     },
     {
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/타이어-교체.png',
+      image: '/images/타이어-교체.png',
       title: '타이어 교체',
       description: '고급형 정비는 타이어 교체도 제공',
       icon: 'settings',
