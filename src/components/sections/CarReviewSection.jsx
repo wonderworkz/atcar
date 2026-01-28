@@ -6,13 +6,13 @@ const CarReviewSection = () => {
       videoId: 'N5z8n277zZ8',
       tag: '팰리세이드 가솔린 익스클루시브 7인승',
       title: '팰리세이드 리뷰',
-      carImage: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드-1.png',
+      carImage: '/images/팰리세이드-1.png',
     },
     {
       videoId: 'h1iTdQfmXG4',
       tag: '카니발 하이브리드 노블레스 9인승',
       title: '카니발 리뷰',
-      carImage: 'https://atcar.kr/wp-content/uploads/2025/05/카니발-1-2.png',
+      carImage: '/images/카니발-1-2.png',
     },
     {
       videoId: 'nGXHUx25Szw',

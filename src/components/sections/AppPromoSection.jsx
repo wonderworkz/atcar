@@ -5,7 +5,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     {
       rank: 1,
       rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/카니발-1-2.png',
+      image: '/images/카니발-1-2.png',
       name: '기아 카니발 하이브리드 9인승',
       trim: '1.6 프레스티지 2WD',
       price: '월 29만원~',
@@ -14,7 +14,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     {
       rank: 2,
       rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/팰리세이드-1.png',
+      image: '/images/팰리세이드-1.png',
       name: '현대 팰리세이드 하이브리드 9인승',
       trim: '2.5T 익스클루시브 2WD',
       price: '월 37만원~',
@@ -23,7 +23,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     {
       rank: 3,
       rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/그랜저-1.png',
+      image: '/images/그랜저-1.png',
       name: '현대 그랜저 하이브리드 5인승',
       trim: '1.6T 프리미엄 2WD',
       price: '월 31만원~',
@@ -32,7 +32,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     {
       rank: 4,
       rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/그랑콜레오스-1.png',
+      image: '/images/그랑콜레오스-1.png',
       name: '르노 그랑콜레오스 5인승',
       trim: 'E-Tech iconic 2WD',
       price: '월 35만원~',
@@ -41,7 +41,7 @@ const AppPromoSection = ({ onConsultClick }) => {
     {
       rank: 5,
       rankStyle: 'bg-transparent text-[#3B82F6] border-[#3B82F6]',
-      image: 'https://atcar.kr/wp-content/uploads/2025/05/ev-3-1.png',
+      image: '/images/ev-3-1.png',
       name: '기아 EV3 전기차 5인승',
       trim: '에어 스탠다드 2WD',
       price: '월 21만원~',
@@ -141,7 +141,7 @@ const AppPromoSection = ({ onConsultClick }) => {
               {/* 차량 이미지 */}
               <div className="flex items-center justify-center my-1 md:my-2">
                 <img
-                  src="https://atcar.kr/wp-content/uploads/2025/05/코나.png"
+                  src="/images/코나.png"
                   alt="코나 하이브리드"
                   className="w-full max-w-[285px] h-auto object-contain mx-auto"
                   loading="lazy"
