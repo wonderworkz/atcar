@@ -90,7 +90,6 @@ const AppPromoSection = ({ onConsultClick }) => {
                   src={model.image}
                   alt={model.name}
                   className="w-full h-auto object-contain"
-                  loading="lazy"
                 />
               </div>
 
@@ -144,7 +143,6 @@ const AppPromoSection = ({ onConsultClick }) => {
                   src="/images/코나.png"
                   alt="코나 하이브리드"
                   className="w-full max-w-[285px] h-auto object-contain mx-auto"
-                  loading="lazy"
                 />
               </div>
 

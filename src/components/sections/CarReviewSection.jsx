@@ -80,7 +80,6 @@ const CarReviewSection = () => {
                         src={review.carImage}
                         alt={review.title}
                         className="w-full h-auto object-contain"
-                        loading="lazy"
                       />
                     </div>
                   )}
