@@ -8,7 +8,7 @@ const Header = ({ onMenuClick }) => {
           {/* 로고 */}
           <div className="flex items-center">
             <img
-              src="/atcar/images/atcar_logo.png"
+              src="/images/atcar_logo.png"
               alt="앗차가와"
               className="h-[22px]"
             />

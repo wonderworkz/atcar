@@ -18,13 +18,13 @@ const CarReviewSection = () => {
       videoId: 'nGXHUx25Szw',
       tag: '그랜저 하이브리드',
       title: '그랜저 리뷰',
-      carImage: '',
+      carImage: '/images/그랜저.png',
     },
     {
       videoId: '-LSh_P5aT6c',
       tag: '액티언 하이브리드',
       title: '액티언 리뷰',
-      carImage: '',
+      carImage: '/images/액티언.png',
     },
   ];
 

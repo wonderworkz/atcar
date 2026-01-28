@@ -113,6 +113,38 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
   const [submitError, setSubmitError] = useState(null);
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
+  // 제출 중 타이핑 효과를 위한 state
+  const [submittingTypedText, setSubmittingTypedText] = useState('');
+  const submittingFullText = '상담을 신청하고 있어요!';
+
+  useEffect(() => {
+    if (!isSubmitting) {
+      setSubmittingTypedText('');
+      return;
+    }
+
+    let currentIndex = 0;
+    let timeoutId;
+
+    const animate = () => {
+      if (currentIndex <= submittingFullText.length) {
+        setSubmittingTypedText(submittingFullText.slice(0, currentIndex));
+        currentIndex++;
+        timeoutId = setTimeout(animate, 800 / submittingFullText.length);
+      } else {
+        // 타이핑 완료 후 처음부터 다시 시작
+        currentIndex = 0;
+        timeoutId = setTimeout(animate, 500);
+      }
+    };
+
+    animate();
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [isSubmitting]);
+
   const isFormValid = formData.name && formData.phone && formData.agreePrivacy && formData.agreeThirdParty;
 
   const handleSubmit = async () => {
@@ -151,9 +183,9 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
   return (
     <>
       {/* PC 버전 */}
-      <div className={`hidden md:block fixed bottom-[28px] xl:bottom-[20px] left-1/2 -translate-x-1/2 w-full z-50 transition-all ${isOpen ? 'max-w-[900px] px-6' : 'max-w-[520px]'}`}>
+      <div className={`hidden md:block fixed bottom-[28px] xl:bottom-[20px] left-1/2 -translate-x-1/2 w-full z-50 transition-all ${isOpen && !isSubmitSuccess ? 'max-w-[900px] px-6' : 'max-w-[520px]'}`}>
         <div
-          className={`overflow-hidden rounded-[40px] border border-white/20 bg-[rgba(11,17,32,0.80)] backdrop-blur-[50px] ${isOpen ? 'px-[40px] py-[28px]' : 'px-[30px]'}`}
+          className={`overflow-hidden rounded-[40px] border border-white/20 bg-[rgba(11,17,32,0.80)] backdrop-blur-[50px] ${isOpen && !isSubmitSuccess ? 'px-[40px] py-[28px]' : 'px-[30px]'}`}
           style={{
             boxShadow: '0 0 24px rgba(0,0,0,0.20)'
           }}
@@ -179,7 +211,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
           {!isOpen && (
             <div className="flex flex-col items-center">
               {/* 중앙 정렬 타이틀 */}
-              <div className={`flex items-center justify-center w-full ${typedText ? 'pt-6 mb-4' : 'pt-6 pb-2'}`}>
+              <div className={`flex items-center justify-center w-full ${typedText ? 'pt-6 mb-4' : 'pt-6'}`}>
                 <p className="text-[20px] font-bold tracking-tighter" style={{ color: '#9AF7DD' }}>
                   {typedText}
                 </p>
@@ -188,7 +220,10 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
               {/* 버튼 2개 */}
               <div className="flex w-full items-center gap-3 pb-6">
                 <div className="flex min-w-0 flex-1 basis-0">
-                  <button
+                  <a
+                    href="http://pf.kakao.com/_azxoAX/chat"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex h-[48px] items-center justify-center rounded-[48px] bg-[#fee500] px-4 active:bg-[#e0ca00] w-full"
                   >
                     <span className="inline-flex items-center gap-2">
@@ -199,7 +234,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
                         카카오톡 문의
                       </span>
                     </span>
-                  </button>
+                  </a>
                 </div>
                 <div className="flex min-w-0 flex-1 basis-0">
                   <button
@@ -215,7 +250,12 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
 
           {/* 열린 상태 - 성공 화면 */}
           {isOpen && isSubmitSuccess && (
-            <div className="flex w-full flex-col items-center gap-4">
+            <div className="flex w-full flex-col items-center gap-4 py-6">
+              <img
+                src="/images/ev-car-icon.png"
+                alt="상담 완료"
+                className="w-[50%] h-auto object-contain animate-slide-in-bounce"
+              />
               <div className="text-center">
                 <p className="text-xl font-bold text-white mb-2">
                   상담 신청이 완료되었습니다!
@@ -367,9 +407,9 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
                 <button
                   onClick={handleSubmit}
                   disabled={!isFormValid || isSubmitting}
-                  className="submit flex h-[52px] w-full items-center justify-center rounded-full bg-c-primary text-sm font-bold tracking-tighter text-white active:bg-c-primary-active disabled:bg-[#ECECEC] disabled:text-[#9C9CAC]"
+                  className="submit flex h-[52px] w-full items-center justify-center rounded-full text-sm font-bold tracking-tighter bg-c-primary text-white active:bg-c-primary-active disabled:bg-[#0B1120] disabled:text-white disabled:border disabled:border-white/20"
                 >
-                  {isSubmitting ? '처리 중...' : '무료 견적 받아보기'}
+                  {isSubmitting ? submittingTypedText || '.' : '무료 견적 받아보기'}
                 </button>
               </div>
             </div>
@@ -390,7 +430,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
           {/* 닫힌 상태 */}
           {!isOpen && (
             <>
-              <div className={`flex items-center justify-center ${typedText ? 'pt-4 mb-4' : 'pt-4 pb-2'}`}>
+              <div className={`flex items-center justify-center ${typedText ? 'pt-4 mb-4' : 'pt-4'}`}>
                 <p className="text-base font-bold text-center" style={{ color: '#9AF7DD' }}>
                   {typedText}
                 </p>
@@ -401,7 +441,7 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
                 {/* 카카오톡 버튼 */}
                 <div className="flex min-w-0 flex-1 basis-0">
                   <a
-                    href={import.meta.env.VITE_KAKAO_TALK_URL || '#'}
+                    href="http://pf.kakao.com/_azxoAX/chat"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-[52px] items-center justify-center rounded-[52px] bg-[#fee500] px-4 active:bg-[#e0ca00] w-full"
@@ -433,6 +473,11 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
           {/* 열린 상태 - 성공 화면 */}
           {isOpen && isSubmitSuccess && (
             <div className="flex w-full flex-col items-center gap-4">
+              <img
+                src="/images/ev-car-icon.png"
+                alt="상담 완료"
+                className="w-[60%] h-auto object-contain animate-slide-in-bounce"
+              />
               <div className="text-center">
                 <p className="text-lg font-bold text-white mb-2">
                   상담 신청이 완료되었습니다!
@@ -588,9 +633,9 @@ const FloatingButton = ({ onConsultClick, isOpen: externalIsOpen, setIsOpen: ext
                 <button
                   onClick={handleSubmit}
                   disabled={!isFormValid || isSubmitting}
-                  className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3B82F6] text-[14px] font-bold tracking-tighter text-white active:bg-[#2563EB] disabled:bg-[#ECECEC] disabled:text-[#9C9CAC]"
+                  className="flex h-[52px] w-full items-center justify-center rounded-full text-[14px] font-bold tracking-tighter bg-[#3B82F6] text-white active:bg-[#2563EB] disabled:bg-[#0B1120] disabled:text-white disabled:border disabled:border-white/20"
                 >
-                  {isSubmitting ? '처리 중...' : '무료 견적 받아보기'}
+                  {isSubmitting ? submittingTypedText || '.' : '무료 견적 받아보기'}
                 </button>
               </div>
             </>

@@ -64,9 +64,16 @@ export default {
           '70.6%': { opacity: '1' },
           '100%': { opacity: '0.3' },
         },
+        'slide-in-bounce': {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '60%': { transform: 'translateX(-8%)', opacity: '1' },
+          '80%': { transform: 'translateX(3%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         blink: 'blink 1.7s ease-in-out infinite',
+        'slide-in-bounce': 'slide-in-bounce 0.5s ease-out forwards',
       },
     },
   },

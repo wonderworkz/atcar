@@ -44,7 +44,7 @@ const HamburgerMenu = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="sticky top-0 bg-[#0B1120] px-6 py-4 flex items-center justify-between">
           <img
-            src="/atcar/images/atcar_logo.png"
+            src="/images/atcar_logo.png"
             alt="앗차가와"
             className="h-7"
           />

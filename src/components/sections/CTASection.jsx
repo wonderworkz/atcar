@@ -217,7 +217,7 @@ const CTASection = ({ onConsultClick }) => {
               <button
                 disabled={!isFormValid}
                 onClick={handleSubmit}
-                className="submit flex h-[52px] w-full items-center justify-center rounded-xl bg-primary text-sm font-bold tracking-tighter text-white hover:bg-primary/90 active:bg-blue-700 disabled:bg-[#ECECEC] disabled:text-[#9C9CAC] disabled:cursor-not-allowed transition-colors"
+                className="submit flex h-[52px] w-full items-center justify-center rounded-full bg-c-primary text-sm font-bold tracking-tighter text-white active:bg-c-primary-active disabled:bg-[#0B1120] disabled:text-white disabled:border disabled:border-white/20 disabled:cursor-not-allowed transition-colors"
               >
                 무료 견적 받아보기
               </button>

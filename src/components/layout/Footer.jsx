@@ -34,7 +34,7 @@ const Footer = () => {
           {/* 로고 영역 */}
           <div className="flex-shrink-0 flex justify-center md:justify-end">
             <img
-              src="/atcar/images/atcar_logo.png"
+              src="/images/atcar_logo.png"
               alt="앗차가와"
               className="h-5 md:h-10"
             />
